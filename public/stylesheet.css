@@ -1,3 +1,12 @@
 *{
-    background-color: red;
+    font-family: Avenir;
+}
+
+.area-cinema-img{
+    width: 20vw;
+}
+
+.area-choice-ui{
+    display: flex;
+    justify-content: center;
 }

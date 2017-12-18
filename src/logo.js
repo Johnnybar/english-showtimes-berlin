@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export default function Logo (){
     return(
         <div className='logo'>
-            <Link to='/'><img id='logo' src='/film.svg' /></Link>
+            <Link to='/welcome/'><img id='logo' src='/film.svg' /></Link>
 
     </div>
     )

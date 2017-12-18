@@ -1,16 +1,11 @@
-// import Welcome from './welcome';
-// import Logo  from './logo';
-// import Login from './login';
-// import App from './app'
-// import Register from './register';
-// import Profile from './profile'
-// import OtherUsers from './otherusers'
-// import FriendButton from './friendbutton'
-// import Friends from './friends'
-// import Online from './online'
-// import Chat from './chat'
-// import About from './about'
-// import socketConnections from './socket'
+
+import Logo  from './logo';
+import App from './app'
+import areaChoice from './areaChoice'
+import Area from './area'
+import Cinemas from './cinemas'
+import OneCinema from './oneCinema'
+import Welcome from './welcome';
 import { Router, Route, IndexRoute, hashHistory, browserHistory, Redirect } from 'react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -27,7 +22,7 @@ let router;
 const outerRouter = (
     <Router history={hashHistory}>
         <Route path="/" component={Welcome}>
-            {/* <Route path="/login" component={Login} /> */}
+            {/* <Route path="/" component={areaChoice} /> */}
             <IndexRoute component={areaChoice} />
   	</Route>
     </Router>
@@ -36,15 +31,13 @@ const outerRouter = (
 const mainRouter = (
     <Provider store = {store}>
     <Router history={browserHistory}>
-        {/* THIS IS THE MAIN PAGE */}
         <Route path="/" component={App}>
-        {/* THIS IS WHERE YOU SEE THE CINEMAS IN THE AREA YOU CHOSE */}
-        <Route path="/:area" component={Cinemas} />
-        {/* THIS IS THE SPECIFIC CINEMA YOU CHOSE */}
-        <Route path="/area/:kino" component ={OneCinema} />
-        {/* <Route path="/about" component={About} /> */} */}
+        <Route path="/areas/:area" component ={Area} />
+        <Route path="/cinemas/:cinema" component ={OneCinema} />
+        <Route path="/cinemas" component={Cinemas} /> */}
         <Redirect from ="*" to="/" />
-        <IndexRoute component={App} />
+        <IndexRoute component={areaChoice} />
+        {/* IS THIS THE CORRECT ROUTE FOR INDEX?? */}
     </Route>
     </Router>
 </Provider>
