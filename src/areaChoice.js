@@ -39,6 +39,7 @@ componentDidMount() {
     render() {
 
     return (
+        <div className='extend-choice'>
         <div className='area-choice-ui'>
 
 
@@ -66,6 +67,7 @@ componentDidMount() {
                     <option value="/areas/Wedding">Wedding</option> */}
                 {/* </select> */}
 
+        </div>
         </div>
 
     )

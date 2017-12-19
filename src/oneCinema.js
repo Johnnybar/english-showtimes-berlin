@@ -24,17 +24,9 @@ class OneCinema extends React.Component {
 
     componentDidMount() {
         const cinemaId= this.props.params.cinema;
-        this.props.dispatch(getShowtimesInfo(cinemaId))
-
-    }
-    render() {
-        console.log('this is movieArr: ', this.props.movieArr);
-        console.log('this is props showtimes', this.props.showtimes);
-            if (!this.props.showtimes) {
-                return (
-                    <div>waiting</div>
-                )
-            }
+        this.props.dispatch(getShowtimesInfo(cinemaId)).then(()=>{
+            console.log('this is movieArr: ', this.props.movieArr);
+            console.log('this is props showtimes', this.props.showtimes);
             const showtimes = this.props.showtimes;//THIS IS THE LIST WITH ALL THE SHOWTIMES INFO
             const movieInfo = this.props.movieArr //THIS IS THE ARRAY WITH THE SYNOPSIS AND POSTER
             //NEED TO GET MOVIE NAMES FROM THE API
@@ -44,21 +36,32 @@ class OneCinema extends React.Component {
                 // this.props.dispatch(getMoviesInfo(movieId))
                 this.props.dispatch(getMoviesInfo(movieId, showtimes))
             }
+        })
+
+    }
+
+
+    render() {
+        // setTimeout
+        const showtimes = this.props.showtimes;//THIS IS THE LIST WITH ALL THE SHOWTIMES INFO
+        const movieInfo = this.props.movieArr //THIS IS THE ARRAY WITH THE SYNOPSIS AND POSTER
+        if (!this.props.showtimes) {
+            return (
+                <div>waiting</div>
+            )
+        }
+
         //
         return(
-            <div>
+            <div className='showtimes-container'>
                 Content will be here soon
          {showtimes.length > 0 &&
-             <div>
+             <div className='moviesContainer'>
                  {showtimes.map(show =>{
-                     console.log('this is show: ', show);
-
-                     var toRemove= '00 GMT+0100 (CET)'
                      let eachDate;
                      let otherDate;
-
                      let hour;
-                     var dateArr=[]
+                     let dateArr=[]
 
 
                      var string_date = show.start_at
@@ -70,31 +73,39 @@ class OneCinema extends React.Component {
                          eachDate = new Date(string_date[i])
                          hour = eachDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                          otherDate = eachDate.toLocaleDateString();
+                         var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+                         var day = days[ eachDate.getDay() ];
                          var newDate = hour.toString()
                          var secondDate = otherDate.toString()
-
-                         dateArr.push(secondDate + ', ' + newDate + '. ')
+                         var weekDay= day.toString()
+                         dateArr.push(weekDay + ', ' + secondDate + ', ' + newDate + '. ')
                      }
-                     // string_date.forEach(onDate=>{
-                     //      eachDate = new Date(onDate)
-                     // })
-
-
+                     console.log('this is dateArr: ',dateArr);
                     return(
-                     <div>
-                         Movie: {show.cinema_movie_title}
-                         <ul>
+                        <div className='each-movie'>
+
+
+                         {/* <div>Movie: {show.cinema_movie_title}</div> */}
+                        {show.title}
+                         <div> {show.synopsis}</div>
+                         <div>
+                             {/* <img src= {show.poster}/> */}
+                             <img src={show.thumbnail}/>
+                         </div>
                              {/* <li>Showtime: {show.start_at}</li> */}
-                             <li>showtimes: {dateArr} </li>
+                             <div className= 'times-container'>
+                             <div className= 'showtimes'>showtimes: <br/>{dateArr}</div>
+                             </div>
                              {/* <li>Showtime: {dateArr.toLocaleDateString()}, {dateArr.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</li> */}
-                             <li>Language: {show.language}</li>
-                             <li>Movie Id:  {show.movie_id}</li>
-                             {/* <li><img src={show.poster_image}/></li> */}
-                         </ul>
+                             <div>Language: {show.language}</div>
+
+                             {/* <div>{show.movie_id}</div> */}
+                             {/* <li><img src={show.thumbnail}/></li> */}
                      </div>
                  )}
                  )}
                 </div>}
+                
                 </div>
             )
 

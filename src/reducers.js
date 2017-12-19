@@ -14,7 +14,7 @@ export default function(state = {}, action) {
     // }
 
     if (action.type == 'GET_SHOWTIMES') {
-        console.log('this is action showtimes:  ',action.showtimes);
+
         state = Object.assign({}, state, {
             showtimes: action.showtimes
         });
@@ -22,26 +22,19 @@ export default function(state = {}, action) {
 
 
 
-    if (action.type == 'GET_MOVIE_IDS') {
+    if (action.type == 'GET_MOVIE_INFO') {
 
         state = Object.assign({}, state, {
-            movieArr: action.movieArr
-            // showtimes: state.showtimes.showtimes.map(movie=>{
-            //     if (movie.movie_id== action.movieArr.id){
-            //         console.log('helllooo');
-            //     }
-            // })
-            // showtimes.map(movie=>{
-            //    if(movie.movie_id ==action.movieObj.id){
-            //        console.log('hello');
-            //        // return Object.assign({}, state,{
-            //
-            // });
-            // }
-            // })
+            showtimes: state.showtimes.map(showtime=>{
+                if (showtime.movie_id == action.movieId){
+                    return Object.assign({}, showtime, action.movieObj);
+                }
+                return showtime;
+            })
+        // movieArr: action.movieArr
         });
     }
-
+    console.log('this is state: ', state);
 
     return state;
 }

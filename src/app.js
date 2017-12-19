@@ -21,8 +21,12 @@ export default class App extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className='main-container'>
+
+
+                <div className= 'header'>
                 <Logo />
+            </div>
 
 
 
@@ -30,7 +34,10 @@ export default class App extends React.Component {
                 {/* <div id="webgl-container"></div> */}
 
                 {this.props.children}
-
+                
+            <div className= 'footer'>
+                <div>This is footer</div>
+            </div>
             </div>
         )
     }

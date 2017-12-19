@@ -39,48 +39,31 @@ export const getShowtimesInfo = function(cinemaId) {
 
 };
 
-let movieArr =[];//DISPATCH ORIGINALLY WITH SHOWTIMES IN IT
+// let movieArr =[];//DISPATCH ORIGINALLY WITH SHOWTIMES IN IT
 export const getMoviesInfo = function(movieId) {
     return axios.get('/getMoviesInfo/'+ movieId).then((results)=>{
-        // console.log('this is results of getMoviesInfo action ', results.data.data.movie);
+        var newResults= results.data.data.movie;
+        console.log('this is new Results', newResults);
+        //
         var movieObj={
-            title: results.data.data.movie.title,
-            id: results.data.data.movie.id,
-            poster: results.data.data.movie.poster_image.image_files[0].url,
-            synopsis: results.data.data.movie.synopsis
+            title: newResults.original_title,
+            id: newResults.id,
+            poster: newResults.poster_image.image_files[0].url,
+            synopsis: newResults.synopsis,
+            thumbnail: newResults.poster_image_thumbnail
+
+
+
         };
-        // console.log('this is movieObj: ', movieObj);
-        // movieArr.push(movieObj);
-        //
-        // showtimes.map(eachShow=>{
-        //     for (var i = 0; i < showtimes.length; i++) {
-        //         if(eachShow.movie_id === movieObj.id){
-        //             showtimes[i].poster=movieArr[i].poster;
-        //         }
-        //     }
-        //
-        //     // if(eachShow.movie_id === movieObj.id){
-        //     //     showtimes.push(movieObj.poster);
-        //     //
-        //     // }
-        //     console.log('this is new showtimes: ', showtimes);
-        // });
-
-        // console.log('this is movie.movie_id: ', movie.movie_id );
-        // return(
-        // movie.movie_id=== movieObj.id);
-        // );
-
-        // showtimes.push(newMovieArr);
-        // console.log('this is new movie arr: ', newMovieArr);
 
 
-
-        movieArr.push(movieObj);
         return {
-            type:'GET_MOVIE_IDS',
-            movieArr: movieArr
+            type:'GET_MOVIE_INFO',
+            movieObj: movieObj,
+            movieId: movieId
         };
     });
+
+
 
 };

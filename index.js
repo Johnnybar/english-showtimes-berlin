@@ -121,7 +121,9 @@ app.get('/getShowtimesInfo/:cinemaId', function(req,res){
     api.getShowtimesInfo(cinemaId)
         .then((results)=>{
             let json = CircularJSON.stringify(results);
-            res.json(JSON.parse(json));
+            var showtimes= JSON.parse(json);
+            console.log('this is showtimes index js', showtimes);
+            res.json(showtimes);
         }).catch(function(err){
             console.log(err);
         });
@@ -135,8 +137,9 @@ app.get('/getMoviesInfo/:movieId', function(req,res){
     api.getMoviesInfo(movieId)
         .then(results=>{
             let json = CircularJSON.stringify(results);
-            // console.log('this is json of app getMoviesInfo: ',json);
-            res.json(JSON.parse(json));
+            var movieResults = JSON.parse(json);
+            res.json(movieResults);
+            console.log('this is results in indexjs: ',movieResults);
         }).catch(function(err){
             console.log(err);
         });

@@ -37,11 +37,22 @@ class Area extends React.Component{
         if(cinemas){
             console.log('these are cinemas');
             cinemasList = cinemas.map(eachCinema=>
-                <div>
-                    <div>{eachCinema.name}</div>
-                    <a href={'/cinemas/' + `${eachCinema.api_id}`}><img src={eachCinema.imgurl} className='area-cinema-img'/></a>
-
+            <div >
+                <div className='cinema-border'>
+                <div className='container-of-both'>
+                    <a href={'/cinemas/' + `${eachCinema.api_id}`}>
+                        <div className='outer-cinema-container'>
+                            <div>{eachCinema.name}</div>
+                        </div>
+                        <div className='each-cinema-container'>
+                            <img src={eachCinema.imgurl} className='area-cinema-img'/>
+                        </div>
+                        </a>
                 </div>
+                </div>
+            </div>
+
+
             )
         }
 
@@ -49,7 +60,7 @@ class Area extends React.Component{
         return(
             <div>
                 <div>Welcome to {areaId}</div>
-                <ul>{cinemasList}</ul>
+                <div className='all-cinemas-container'>{cinemasList}</div>
 
             </div>
         )

@@ -1,12 +1,155 @@
+@-webkit-keyframes fade {
+    0% {
+        visibility: visible;
+  opacity: 1;
+        }
+
+    100% {
+        visibility: visible;
+  opacity: 0.2;
+    }
+}
+
+@-webkit-keyframes turnBlack {
+    0% {
+        opacity: 0;
+
+        }
+
+    100% {
+        opacity: 0.8
+    }
+}
+
+@-webkit-keyframes blurIn {
+    0% {
+        filter:blur(5px);
+
+        }
+
+    100% {
+
+    }
+}
+
 *{
     font-family: Avenir;
 }
+body {
+    margin: 0;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.footer{
+    background-color: indianred;
+}
+.header{
+    background-color: indianred;
+    height: 5vw
+}
+.showtimes{
+    display: flex;
+border: 1px solid black;
+text-align: center;
+}
 
 .area-cinema-img{
-    width: 20vw;
+    width: 25vw;
+height: 65vh;
 }
 
 .area-choice-ui{
     display: flex;
     justify-content: center;
+
+}
+.extend-choice{
+    height:90vh;
+}
+
+.showtimes-container{
+    display: flex;
+flex-direction: column;
+}
+
+.moviesContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.times-container{
+
+}
+
+.each-movie{
+    background-color: white;
+border: 1px solid black;
+    padding: 70px;
+    width: 100%
+}
+.all-cinemas-container {
+    display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 6px;
+}
+
+.each-cinema-container {
+    /*background-color: white;
+    padding: 10px;
+    margin: 10px;*/
+    position: relative;
+    overflow: hidden;
+    animation: blurIn 1s ease-in forwards
+}
+
+/*.each-cinema-container:hover{
+    animation: fade 0.5s ease-in;
+
+}*/
+
+.outer-cinema-container {
+    /*z-index:100;
+    background-color: black*/
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 0;
+    color: white;
+
+}
+.outer-cinema-container:hover{
+    animation: turnBlack 0.1s ease-in forwards;
+}
+
+
+.container-of-both {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+
+
+.cinema-border{
+    background-color: black;
+    padding: 5px;
+    margin: 10px;
+}
+
+
+iframe{
+
+    position:fixed;
+    top:0px; left:0px; bottom:0px; right:0px; width:100%;
+    height:120%; border:none; margin:0; padding:0;
+    overflow:hidden; z-index:-999999;
+    pointer-events: none
 }
