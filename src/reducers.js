@@ -7,11 +7,21 @@ export default function(state = {}, action) {
             cinemas: action.cinemas
         });
     }
+    // if (action.type == 'GET_SHOWTIMES') {
+    //     state = Object.assign({}, state, {
+    //         showtimes: action.showtimes
+    //     });
+    // }
+
     if (action.type == 'GET_SHOWTIMES') {
+        console.log('this is action showtimes:  ',action.showtimes);
         state = Object.assign({}, state, {
             showtimes: action.showtimes
         });
     }
+
+
+
     if (action.type == 'GET_MOVIE_IDS') {
 
         state = Object.assign({}, state, {

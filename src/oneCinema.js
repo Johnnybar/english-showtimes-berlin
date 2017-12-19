@@ -35,7 +35,7 @@ class OneCinema extends React.Component {
                     <div>waiting</div>
                 )
             }
-            const showtimes = this.props.showtimes.showtimes;//THIS IS THE LIST WITH ALL THE SHOWTIMES INFO
+            const showtimes = this.props.showtimes;//THIS IS THE LIST WITH ALL THE SHOWTIMES INFO
             const movieInfo = this.props.movieArr //THIS IS THE ARRAY WITH THE SYNOPSIS AND POSTER
             //NEED TO GET MOVIE NAMES FROM THE API
             for (var i = 0; i < showtimes.length; i++) {
@@ -48,23 +48,45 @@ class OneCinema extends React.Component {
         return(
             <div>
                 Content will be here soon
-         {showtimes.length > 1 &&
+         {showtimes.length > 0 &&
              <div>
                  {showtimes.map(show =>{
-                     // console.log('this is start_at: ', show.start_at);
-                     var string_date = (show.start_at)
-                     var date = new Date(string_date);
+                     console.log('this is show: ', show);
+
+                     var toRemove= '00 GMT+0100 (CET)'
+                     let eachDate;
+                     let otherDate;
+
+                     let hour;
+                     var dateArr=[]
 
 
-                     // date.getDate() // returns 21 -> day
-                     // date.getMonth()
+                     var string_date = show.start_at
 
-                     ////map movieArr to compare  cinema_movie_title with i
+                     for (var i = 0; i < string_date.length; i++) {
+                         // if (string_date[i] == toRemove) {
+                         //     string_date.splice(i, 1);
+                         // }
+                         eachDate = new Date(string_date[i])
+                         hour = eachDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                         otherDate = eachDate.toLocaleDateString();
+                         var newDate = hour.toString()
+                         var secondDate = otherDate.toString()
+
+                         dateArr.push(secondDate + ', ' + newDate + '. ')
+                     }
+                     // string_date.forEach(onDate=>{
+                     //      eachDate = new Date(onDate)
+                     // })
+
+
                     return(
                      <div>
                          Movie: {show.cinema_movie_title}
                          <ul>
-                             <li>Showtime: {date.toLocaleDateString()}, {date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</li>
+                             {/* <li>Showtime: {show.start_at}</li> */}
+                             <li>showtimes: {dateArr} </li>
+                             {/* <li>Showtime: {dateArr.toLocaleDateString()}, {dateArr.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</li> */}
                              <li>Language: {show.language}</li>
                              <li>Movie Id:  {show.movie_id}</li>
                              {/* <li><img src={show.poster_image}/></li> */}

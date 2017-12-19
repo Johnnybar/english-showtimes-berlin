@@ -15,6 +15,8 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const api = require('./api.js');
 const CircularJSON = require('circular-json');
+var moment = require('moment');
+moment().format();
 
 
 ////////////////////////

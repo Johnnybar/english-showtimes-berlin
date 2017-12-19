@@ -13,34 +13,27 @@ export const getAllCinemas = function(areaId) {
 
 };
 
-
+let firstResult;
 export const getShowtimesInfo = function(cinemaId) {
     return axios.get('/getShowtimesInfo/'+ cinemaId).then((results)=>{
-        console.log('this is results of getShowtimesInfo action ', results.data.data);
         var showtimesArray =results.data.data;
 
-        var output = [];
+        var obj = {};
+        showtimesArray.showtimes.forEach(movie => {
+            obj[movie.movie_id] = obj[movie.movie_id] || { 'movie_id' : movie.movie_id, 'start_at' : [], 'cinema_movie_title':movie.cinema_movie_title, 'language': movie.language };
+            obj[movie.movie_id].start_at = obj[movie.movie_id].start_at.concat(movie.start_at);
+        });
+        firstResult =  Object.keys(obj).map(value => obj[value]);
+        var noGermanMovies = firstResult.filter(movie=>
+            movie.language ==='en'
+        );
+        console.log('this is the original result of showtimes array: ', firstResult);
+        console.log('this is noGermanMovies: ', noGermanMovies);
 
-        // showtimesArray.showtimes.forEach(function(value) {
-        //     var existing = output.filter(function(v, i) {
-        //         return v.movie_id == value.movie_id;
-        //     });
-        //     if (existing.length) {
-        //         console.log('this is existing: ', existing);
-        //         var existingIndex = output.indexOf(existing[0]);
-        //         output[existingIndex].value = output[existingIndex].value.concat(value.value);
-        //     } else {
-        //         if (typeof value.value == 'string')
-        //             value.value = [value.value];
-        //         output.push(value);
-        //     }
-        // });
-
-        // console.dir('this is output' , output);
 
         return {
             type:'GET_SHOWTIMES',
-            showtimes:showtimesArray
+            showtimes:noGermanMovies
         };
     });
 
