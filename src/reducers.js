@@ -34,6 +34,16 @@ export default function(state = {}, action) {
         // movieArr: action.movieArr
         });
     }
+
+
+
+
+    if (action.type == 'GET_CINEMAS_FOR_SAVED') {
+
+        state = Object.assign({}, state, {
+            cinemasForSaved: action.cinemasForSaved
+        });
+    }
     console.log('this is state: ', state);
 
     return state;

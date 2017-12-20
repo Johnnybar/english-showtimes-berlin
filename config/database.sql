@@ -1,6 +1,6 @@
 
 select * from cinemas;
--- DROP TABLE IF EXISTS cinemas;
+-- DROP TABLE IF EXISTS users;
 
 
 CREATE TABLE cinemas(
@@ -10,6 +10,12 @@ CREATE TABLE cinemas(
     area VARCHAR(300) NOT NULL,
     address VARCHAR(300) NOT NULL,
     imgurl text
+);
+
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    selected text
 );
 
 -- INSERT INTO cinemas(api_id, name, area, address, description, imgurl) VALUES (267, 'Passage Kino', 'Neukoelln', 'Karl Marx Str. 131, 12043 Berlin', 'This is the Passage', 'https://d6ff5x4cg2kom.cloudfront.net/system/uploads/cinema_more_image/image/54ef09bc683138488b4b0000/passage_detail_04_2x.jpg');

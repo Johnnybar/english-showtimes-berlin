@@ -21,6 +21,12 @@ class OneCinema extends React.Component {
         this.state = {};
 
     }
+    handleSubmit() {
+
+        console.log('running handleSubmit on login');
+        axios.post('/addToSaved/'+ this.props.params.cinema)
+
+    }
 
     componentDidMount() {
         const cinemaId= this.props.params.cinema;
@@ -54,7 +60,8 @@ class OneCinema extends React.Component {
         //
         return(
             <div className='showtimes-container'>
-                Content will be here soon
+                Not sure if that's where you want to go out tonight?
+                <button className= 'default-btn' onClick={() => this.handleSubmit() }>Click here to save for later</button>
          {showtimes.length > 0 &&
              <div className='moviesContainer'>
                  {showtimes.map(show =>{
@@ -105,7 +112,7 @@ class OneCinema extends React.Component {
                  )}
                  )}
                 </div>}
-                
+
                 </div>
             )
 

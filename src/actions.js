@@ -67,3 +67,13 @@ export const getMoviesInfo = function(movieId) {
 
 
 };
+
+export const getCinemasForSaved = function(newCinemaArr) {
+
+    return {
+        type:'GET_CINEMAS_FOR_SAVED',
+        cinemasForSaved:newCinemaArr.data
+    };
+
+
+};

@@ -37,7 +37,7 @@ class Area extends React.Component{
         if(cinemas){
             console.log('these are cinemas');
             cinemasList = cinemas.map(eachCinema=>
-            <div >
+            <div className='cinema-outer'>
                 <div className='cinema-border'>
                 <div className='container-of-both'>
                     <a href={'/cinemas/' + `${eachCinema.api_id}`}>
@@ -58,7 +58,7 @@ class Area extends React.Component{
 
         //AT THIS POINT, MAYBE DISPATCH ACTION WITH THE BELOW AXIOS TO GET GLOBAL STATE???
         return(
-            <div>
+            <div className='page-stretcher'>
                 <div>Welcome to {areaId}</div>
                 <div className='all-cinemas-container'>{cinemasList}</div>
 

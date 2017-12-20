@@ -51,6 +51,10 @@ body {
     background-color: indianred;
     height: 5vw
 }
+
+.main-app-window{
+    height: 100%
+}
 .showtimes{
     display: flex;
 border: 1px solid black;
@@ -59,7 +63,7 @@ text-align: center;
 
 .area-cinema-img{
     width: 25vw;
-height: 65vh;
+
 }
 
 .area-choice-ui{
@@ -94,11 +98,19 @@ border: 1px solid black;
 }
 .all-cinemas-container {
     display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin: 6px;
+    justify-content: space-around;
+
+    flex-wrap: wrap;
+    margin: 6px;
+    height: 100%;
+}
+.page-stretcher{
+        height: 100%;
 }
 
+.cinema-outer{
+
+}
 .each-cinema-container {
     /*background-color: white;
     padding: 10px;

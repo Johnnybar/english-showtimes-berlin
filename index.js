@@ -97,11 +97,26 @@ app.get('/', function(req, res){
 // THIS DISABLES THE handlebars BUT NEEDED TO AVOID URL TYPO ERRORS!!!!!
 
 app.get('/welcome/', function(req, res){
+    db.getUserSessionId('')
+        .then((result)=>{
+
+            req.session.user = { id: result[0].id};
+            db.updateSessionIdWhereSerial(req.session.user.id);
+        });
     res.sendFile(__dirname + '/index.html');
 
 });
 
 app.get('/getCinemasByArea/:area', function(req,res){
+///BEGIN SESSION AND CREATE TABLE FOR USER SESSION:
+    // db.getUserSessionId('')
+    //     .then((result)=>{
+    //
+    //         req.session.user = { id: result[0].id};
+    //         console.log('this is req session user id: ', req.session.user.id);
+    //         db.updateSessionIdWhereSerial(req.session.user.id);
+    //     });
+
     const area = req.params.area;
     //DB QUERY TO GET LIST
     db.getCinemasByArea(area)
@@ -112,6 +127,32 @@ app.get('/getCinemasByArea/:area', function(req,res){
 
 });
 
+app.post('/addToSaved/:cinemaId', (req,res)=>{
+    db.addToSaved(req.session.user.id, req.params.cinemaId);
+});
+
+app.get('/getSavedCinemas', (req,res)=>{
+    db.getSavedCinemas(req.session.user.id).then((results)=>{
+        var cinemas = results.slice(1);
+        console.log('these are cinemas:', cinemas);
+        let cinemaArr=[];
+        for (var i = 0; i < cinemas.length; i++) {
+            cinemaArr.push(cinemas[i].selected);
+        }
+        // console.log('this is cinemaArr: ', cinemaArr);
+        // var newCinemaArr = cinemaArr.join();
+        // console.log('this is newCinemaArr: ', newCinemaArr);
+        db.getCinemasInfoForSaved(cinemaArr).then((result)=>{
+            res.json(result);
+        });
+        // for (var i = 0; i < cinemas.length; i++) {
+        //     db.getCinemasInfoForSaved(cinemas[i].selected).then((results)=>{
+        //         cinemaArr.push(results);
+        //     });
+        // }
+
+    });
+});
 
 
 app.get('/getShowtimesInfo/:cinemaId', function(req,res){
@@ -122,7 +163,6 @@ app.get('/getShowtimesInfo/:cinemaId', function(req,res){
         .then((results)=>{
             let json = CircularJSON.stringify(results);
             var showtimes= JSON.parse(json);
-            console.log('this is showtimes index js', showtimes);
             res.json(showtimes);
         }).catch(function(err){
             console.log(err);
@@ -139,7 +179,6 @@ app.get('/getMoviesInfo/:movieId', function(req,res){
             let json = CircularJSON.stringify(results);
             var movieResults = JSON.parse(json);
             res.json(movieResults);
-            console.log('this is results in indexjs: ',movieResults);
         }).catch(function(err){
             console.log(err);
         });

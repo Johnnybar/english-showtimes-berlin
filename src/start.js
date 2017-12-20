@@ -6,6 +6,7 @@ import Area from './area'
 import Cinemas from './cinemas'
 import OneCinema from './oneCinema'
 import Welcome from './welcome';
+import SavedForLater from './savedForLater'
 import { Router, Route, IndexRoute, hashHistory, browserHistory, Redirect } from 'react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -34,7 +35,10 @@ const mainRouter = (
         <Route path="/" component={App}>
         <Route path="/areas/:area" component ={Area} />
         <Route path="/cinemas/:cinema" component ={OneCinema} />
-        <Route path="/cinemas" component={Cinemas} /> */}
+        <Route path="/SavedForLater" component ={SavedForLater} />
+
+        {/* <Route path="/cinemas" component={Cinemas} /> */} */}
+
         <Redirect from ="*" to="/" />
         <IndexRoute component={areaChoice} />
         {/* IS THIS THE CORRECT ROUTE FOR INDEX?? */}

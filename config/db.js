@@ -28,3 +28,61 @@ exports.getCinemasByArea = function(area) {
         return err;
     });
 };
+
+
+///THESE TWO QUERIES CREATE A ROW, FIRST ONE CREATES IT, SECOND ONE USES THE SERIAL KEY TO UPDATE THE USER ID,
+//TO ALLOW MULTIPLE ROWS OF SELECTIONS WITH SAME USER ID
+exports.getUserSessionId =function(defaultSelected) {
+    return db.query(
+        'INSERT INTO users (selected) VALUES ($1) returning id',
+        [defaultSelected]
+    ).then((results) => {
+        return results.rows;
+    });
+};
+
+
+exports.updateSessionIdWhereSerial =function( id) {
+    return db.query(
+        `UPDATE users
+        SET user_id =($1)
+        WHERE id =($1)`,
+        [id]
+    ).then((results) => {
+        return results.rows;
+    });
+};
+
+//////ADD CINEMA TO SAVED LIST
+exports.addToSaved =function(userId, cinemaId) {
+    return db.query(
+        'INSERT INTO users (user_id, selected) VALUES ($1, $2)',
+        [userId, cinemaId]
+    ).then((results) => {
+        return results.rows;
+    });
+};
+
+//GET SAVED CINEMAS
+exports.getSavedCinemas = function( user_id){
+    return db.query(
+        'SELECT selected FROM users WHERE user_id =($1)',
+        [user_id]
+    ).then((results) => {
+        return results.rows;
+    }).catch((err) => {
+        console.log(err);
+    });
+};
+
+///GET CINEMA INFO FOR Saved
+exports.getCinemasInfoForSaved = function(cinemaArr) {
+    return db.query(
+        'SELECT * FROM cinemas  WHERE api_id = ANY ($1)',
+        [cinemaArr]
+    ).then((results) => {
+        return results.rows;
+    }).catch((err) => {
+        return err;
+    });
+};
