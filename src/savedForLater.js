@@ -3,7 +3,9 @@ import Logo from './logo';
 import { Link } from 'react-router';
 import axios from 'axios'
 import { connect } from 'react-redux';
-import {getCinemasForSaved} from './actions'
+import {getCinemasForSaved, deleteSingleCinema} from './actions'
+
+
 
 // import Api from './api'
 // var modules = require('./modules');
@@ -25,6 +27,19 @@ class SavedForLater extends React.Component{
         this.state={}
 
     }
+
+    handleSubmit(apiId) {
+
+        console.log('running handleSubmit');
+        // var smtg= this.props.cinemasForSaved
+
+        axios.post('/deleteFromSaved/'+ apiId).then((newCinemaResults)=>{
+            console.log('this is new cinema results: ',newCinemaResults );
+            this.props.dispatch(deleteSingleCinema(newCinemaResults))
+        })
+
+    }
+
     componentDidMount() {
         axios.get('/getSavedCinemas').then((results)=>{
             this.props.dispatch((getCinemasForSaved(results)))
@@ -34,10 +49,11 @@ class SavedForLater extends React.Component{
     }
     render(){
         var cinemas= this.props.cinemasForSaved
-        // console.log('these are cinemas: ', cinemas);
+        console.log('these are cinemas: ', cinemas);
         if(cinemas){
         var cinemasList = cinemas.map(eachCinema=>
             <div className='container-of-both'>
+                <button className= 'default-btn' onClick={() => this.handleSubmit(eachCinema.api_id) }>Delete</button>
                 <a href={'/cinemas/' + `${eachCinema.api_id}`}>
                     <div className='outer-cinema-container'>
                         <div>{eachCinema.name}</div>

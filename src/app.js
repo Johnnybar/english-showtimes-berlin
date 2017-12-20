@@ -1,12 +1,10 @@
 import React from 'react';
 import axios from './axios'
 import Logo from './logo'
-import {browserHistory} from "react-router";
+// import {browserHistory} from "react-router";
+// var BrowserHistory = require('react-router/lib/BrowserHistory').default;
 import { Link } from 'react-router';
-
-
-
-
+import { browserHistory } from 'react-router'
 
 export default class App extends React.Component {
     constructor(props) {
@@ -14,7 +12,6 @@ export default class App extends React.Component {
         this.state = {}
 
     }
-
 
     componentDidMount() {
 
@@ -27,8 +24,8 @@ export default class App extends React.Component {
 
                 <div className= 'header'>
                 <Logo />
-                {/* <a href='/savedForLater'>Saved For Later</a> */}
                 <Link to='/savedForLater'>Saved For Later</Link>
+                <div><a onClick={browserHistory.goBack}>Go Back</a></div>
             </div>
 
 

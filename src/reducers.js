@@ -7,11 +7,7 @@ export default function(state = {}, action) {
             cinemas: action.cinemas
         });
     }
-    // if (action.type == 'GET_SHOWTIMES') {
-    //     state = Object.assign({}, state, {
-    //         showtimes: action.showtimes
-    //     });
-    // }
+
 
     if (action.type == 'GET_SHOWTIMES') {
 
@@ -44,6 +40,22 @@ export default function(state = {}, action) {
             cinemasForSaved: action.cinemasForSaved
         });
     }
+
+    if (action.type == 'DELETE_CINEMA_GET_NEW_ARRAY') {
+
+        state = Object.assign({}, state, {
+            cinemasForSaved: action.cinemaArrAfterDelete
+        });
+    }
+
+    if (action.type == 'SET_CINEMA_INFO') {
+
+        state = Object.assign({}, state, {
+            cinemaInfo: action.cinemaInfo
+        });
+    }
+
+
     console.log('this is state: ', state);
 
     return state;

@@ -86,3 +86,29 @@ exports.getCinemasInfoForSaved = function(cinemaArr) {
         return err;
     });
 };
+
+///DELETE CINEMA FROM Saved
+
+exports.deleteFromSaved = function(reqId, selectedId){
+    return db.query(
+        'DELETE from users WHERE user_id = $1 and selected= $2',
+        [reqId, selectedId]
+    ).then(() => {
+        console.log('deleted saved cinema');
+    }).catch((err) => {
+        console.log(err);
+    });
+};
+
+///GET CINEMA INFO FOR ONECINEMA PAGE
+
+exports.getCinemaInfo = function(cinemaId) {
+    return db.query(
+        'SELECT * from cinemas WHERE api_id =($1)',
+        [cinemaId]
+    ).then((results) => {
+        return results.rows;
+    }).catch((err) => {
+        return err;
+    });
+};

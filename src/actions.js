@@ -52,8 +52,6 @@ export const getMoviesInfo = function(movieId) {
             synopsis: newResults.synopsis,
             thumbnail: newResults.poster_image_thumbnail
 
-
-
         };
 
 
@@ -73,6 +71,25 @@ export const getCinemasForSaved = function(newCinemaArr) {
     return {
         type:'GET_CINEMAS_FOR_SAVED',
         cinemasForSaved:newCinemaArr.data
+    };
+
+
+};
+
+export const deleteSingleCinema = function(cinemaArrAfterDelete) {
+    // console.log('this is cinemaArrAfterDelete', cinemaArrAfterDelete);
+    return {
+        type:'DELETE_CINEMA_GET_NEW_ARRAY',
+        cinemaArrAfterDelete:cinemaArrAfterDelete.data
+    };
+
+
+};
+
+export const setCinemaInfo = function(cinemaInfo) {
+    return {
+        type:'SET_CINEMA_INFO',
+        cinemaInfo:cinemaInfo.data[0]
     };
 
 

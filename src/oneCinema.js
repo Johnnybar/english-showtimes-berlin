@@ -3,14 +3,15 @@ import axios from './axios';
 import Logo from './logo';
 import { connect } from 'react-redux';
 import {getShowtimesInfo} from './actions'
-import {getMoviesInfo} from './actions'
+import {getMoviesInfo, setCinemaInfo} from './actions'
 // import Api from './api'
 // var modules = require('./modules');
 
 const mapStateToProps = function(state) {
     return {
         showtimes: state.showtimes,
-        movieArr: state.movieArr
+        movieArr: state.movieArr,
+        cinemaInfo: state.cinemaInfo
 
     }
 };
@@ -23,12 +24,15 @@ class OneCinema extends React.Component {
     }
     handleSubmit() {
 
-        console.log('running handleSubmit on login');
+        console.log('running handleSubmit in oneCinema');
         axios.post('/addToSaved/'+ this.props.params.cinema)
 
     }
 
     componentDidMount() {
+        axios.get('/getCinemaInfo/' +this.props.params.cinema).then((result)=>{
+            this.props.dispatch(setCinemaInfo(result))
+        })
         const cinemaId= this.props.params.cinema;
         this.props.dispatch(getShowtimesInfo(cinemaId)).then(()=>{
             console.log('this is movieArr: ', this.props.movieArr);
@@ -49,6 +53,7 @@ class OneCinema extends React.Component {
 
     render() {
         // setTimeout
+        const cinemaInfo= this.props.cinemaInfo
         const showtimes = this.props.showtimes;//THIS IS THE LIST WITH ALL THE SHOWTIMES INFO
         const movieInfo = this.props.movieArr //THIS IS THE ARRAY WITH THE SYNOPSIS AND POSTER
         if (!this.props.showtimes) {
@@ -60,8 +65,18 @@ class OneCinema extends React.Component {
         //
         return(
             <div className='showtimes-container'>
+                <div className='cinema-info-container'>
+                    {cinemaInfo.name}
+                    <br/>
+                    {cinemaInfo.address}
+                    <br/>
+                    {cinemaInfo.area}
+                    <img src={cinemaInfo.imgurl} className='cinema-page-img'/>
+                </div>
+                <div className= 'save-later-ui'>
                 Not sure if that's where you want to go out tonight?
                 <button className= 'default-btn' onClick={() => this.handleSubmit() }>Click here to save for later</button>
+                </div>
          {showtimes.length > 0 &&
              <div className='moviesContainer'>
                  {showtimes.map(show =>{

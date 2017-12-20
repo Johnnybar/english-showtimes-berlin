@@ -127,8 +127,35 @@ app.get('/getCinemasByArea/:area', function(req,res){
 
 });
 
+app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
+
+    db.getCinemaInfo(req.params.cinemaId).then((result)=>{
+        res.json(result);
+    });
+
+});
+
 app.post('/addToSaved/:cinemaId', (req,res)=>{
     db.addToSaved(req.session.user.id, req.params.cinemaId);
+});
+
+app.post('/deleteFromSaved/:apiId', (req,res)=>{
+    db.deleteFromSaved(req.session.user.id, req.params.apiId)
+        .then(()=>{
+
+            db.getSavedCinemas(req.session.user.id).then((resultWithEmptyElement)=>{
+                var results= resultWithEmptyElement.slice(1);
+                let newCinemaArr=[];
+                for (var i = 0; i < results.length; i++) {
+                    newCinemaArr.push(results[i].selected);
+                }
+                db.getCinemasInfoForSaved(newCinemaArr).then((result)=>{
+                    res.json(result);
+                });
+            });
+
+        });
+
 });
 
 app.get('/getSavedCinemas', (req,res)=>{

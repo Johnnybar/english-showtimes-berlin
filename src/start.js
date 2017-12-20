@@ -6,6 +6,7 @@ import Area from './area'
 import Cinemas from './cinemas'
 import OneCinema from './oneCinema'
 import Welcome from './welcome';
+import Contact from './contact';
 import SavedForLater from './savedForLater'
 import { Router, Route, IndexRoute, hashHistory, browserHistory, Redirect } from 'react-router';
 import React from 'react';
@@ -36,6 +37,7 @@ const mainRouter = (
         <Route path="/areas/:area" component ={Area} />
         <Route path="/cinemas/:cinema" component ={OneCinema} />
         <Route path="/SavedForLater" component ={SavedForLater} />
+        <Route path="/Contact" component ={Contact} />
 
         {/* <Route path="/cinemas" component={Cinemas} /> */} */}
 

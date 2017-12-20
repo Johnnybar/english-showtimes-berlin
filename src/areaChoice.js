@@ -54,18 +54,7 @@ componentDidMount() {
         <MenuItem href="/areas/Wedding"eventKey="7">Wedding</MenuItem>
       </SplitButton>
 
-      {/* THIS IS THE OPTION THAT WORKS WITH HANDLEBARS */}
 
-                {/* <select name="area-selector" id="area-selector" size="1" onChange={this.handleClick}>
-                    <option value="">My Area…</option>
-                    <option value="/areas/kreuzberg" onChange={(e) => this.setState({value: e.target.value})}>Kreuzberg</option>
-                    <option value="/areas/Neukoelln">Neukoelln</option>
-                    <option value="/areas/Schoeneberg">Schoeneberg</option>
-                    <option value="/areas/Mitte">Mitte</option>
-                    <option value="/areas/friedrichshain">friedrichshain</option>
-                    <option value="/areas/PrenzlauerBerg">Prenzlauer Berg</option>
-                    <option value="/areas/Wedding">Wedding</option> */}
-                {/* </select> */}
 
         </div>
         </div>
