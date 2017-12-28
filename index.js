@@ -221,6 +221,4 @@ io.on('connection', function(socket) {
 
 /////SERVER LISTEN
 
-app.listen(8080, function() {
-    console.log("I'm listening.");
-});
+server.listen(process.env.PORT || 5000);
