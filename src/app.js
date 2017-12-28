@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from './axios'
-import LogoInApp from './LogoInApp'
+import LogoInApp from './logoInApp'
 // import {browserHistory} from "react-router";
 // var BrowserHistory = require('react-router/lib/BrowserHistory').default;
 import { Link } from 'react-router';
