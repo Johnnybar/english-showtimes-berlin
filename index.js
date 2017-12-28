@@ -120,6 +120,7 @@ app.post('/deleteFromSaved/:apiId', (req,res)=>{
     db.deleteFromSaved(req.session.user.id, req.params.apiId)
         .then(()=>{
             db.getSavedCinemas(req.session.user.id).then((resultWithEmptyElement)=>{
+                "use strict";
                 var results= resultWithEmptyElement.slice(1);
                 let newCinemaArr=[];
                 for (var i = 0; i < results.length; i++) {
