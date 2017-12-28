@@ -42,7 +42,7 @@ class Area extends React.Component{
                 <div className='container-of-both'>
                     <a href={'/cinemas/' + `${eachCinema.api_id}`}>
                         <div className='outer-cinema-container'>
-                            <div>{eachCinema.name}</div>
+                            <div className='text-inside-cinema'>{eachCinema.name}</div>
                         </div>
                         <div className='each-cinema-container'>
                             <img src={eachCinema.imgurl} className='area-cinema-img'/>
@@ -59,7 +59,7 @@ class Area extends React.Component{
         //AT THIS POINT, MAYBE DISPATCH ACTION WITH THE BELOW AXIOS TO GET GLOBAL STATE???
         return(
             <div className='page-stretcher'>
-                <div>Welcome to {areaId}</div>
+                <div className='welcome-sign'>Welcome to Cinemas in {areaId}</div>
                 <div className='all-cinemas-container'>{cinemasList}</div>
 
             </div>

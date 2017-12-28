@@ -1,5 +1,7 @@
 var axios = require('axios');
 
+
+
 let myAxios = axios.create({
     hostname: 'api.cinepass.de',
     port: '443',
@@ -10,7 +12,8 @@ let myAxios = axios.create({
 });
 
 exports.getShowtimesInfo = function(cinemaId){
-    return myAxios.get('https://api.cinepass.de/v4/showtimes', {
+    return myAxios.get('https://api.internationalshowtimes.com/v4/showtimes', {
+
         params: {
             cinema_id: cinemaId,
             all_fields: true,
@@ -20,8 +23,13 @@ exports.getShowtimesInfo = function(cinemaId){
 };
 
 exports.getMoviesInfo = function(movieId){
-    console.log('this is movieId in api: ',movieId);
-    return myAxios.get('https://api.cinepass.de/v4/movies/'+ movieId);
+    return myAxios.get('https://api.internationalshowtimes.com/v4/movies/'+ movieId);
+};
+
+exports.getSpecificMovieInfo = function(movieTitle){
+
+    return myAxios.get('http://theapache64.com/movie_db/search?keyword='+ movieTitle);
+
 };
 
 

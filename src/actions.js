@@ -41,9 +41,10 @@ export const getShowtimesInfo = function(cinemaId) {
 
 // let movieArr =[];//DISPATCH ORIGINALLY WITH SHOWTIMES IN IT
 export const getMoviesInfo = function(movieId) {
+    // console.log('this is movie id in getMoviesInfo: ',movieId);
     return axios.get('/getMoviesInfo/'+ movieId).then((results)=>{
         var newResults= results.data.data.movie;
-        console.log('this is new Results', newResults);
+        // console.log('this is new Results', newResults);
         //
         var movieObj={
             title: newResults.original_title,
@@ -51,9 +52,7 @@ export const getMoviesInfo = function(movieId) {
             poster: newResults.poster_image.image_files[0].url,
             synopsis: newResults.synopsis,
             thumbnail: newResults.poster_image_thumbnail
-
         };
-
 
         return {
             type:'GET_MOVIE_INFO',
@@ -90,6 +89,16 @@ export const setCinemaInfo = function(cinemaInfo) {
     return {
         type:'SET_CINEMA_INFO',
         cinemaInfo:cinemaInfo.data[0]
+    };
+
+
+};
+
+export const setSearchResults = function(movieInfo) {
+    // console.log('this is movieInfo: ', movieInfo);
+    return {
+        type:'SET_SEARCH_RESULTS',
+        movieInfo:movieInfo
     };
 
 

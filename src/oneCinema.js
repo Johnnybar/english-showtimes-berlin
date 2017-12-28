@@ -25,7 +25,10 @@ class OneCinema extends React.Component {
     handleSubmit() {
 
         console.log('running handleSubmit in oneCinema');
-        axios.post('/addToSaved/'+ this.props.params.cinema)
+        axios.get('/addToSaved/'+ this.props.params.cinema)
+        document.getElementById('saved-icon').style.animation ="growExplode 0.5s ease-in-out alternate"
+        document.getElementById('saved-icon').style.animationIterationCount ="2"
+        //CHANGE FROM POST TO GET, NEED TO SEE IF WRONG
 
     }
 
@@ -40,10 +43,9 @@ class OneCinema extends React.Component {
             const showtimes = this.props.showtimes;//THIS IS THE LIST WITH ALL THE SHOWTIMES INFO
             const movieInfo = this.props.movieArr //THIS IS THE ARRAY WITH THE SYNOPSIS AND POSTER
             //NEED TO GET MOVIE NAMES FROM THE API
-            for (var i = 0; i < showtimes.length; i++) {
+            for (let i = 0; i < showtimes.length ; i++) {
                 // console.log('this is now: ',showtimes[i].movie_id);
-                var movieId = showtimes[i].movie_id
-                // this.props.dispatch(getMoviesInfo(movieId))
+                let movieId = showtimes[i].movie_id
                 this.props.dispatch(getMoviesInfo(movieId, showtimes))
             }
         })
@@ -58,7 +60,10 @@ class OneCinema extends React.Component {
         const movieInfo = this.props.movieArr //THIS IS THE ARRAY WITH THE SYNOPSIS AND POSTER
         if (!this.props.showtimes) {
             return (
-                <div>waiting</div>
+                <div className='loader-container'>
+                <div className="loader"></div>
+                </div>
+
             )
         }
 
@@ -74,8 +79,8 @@ class OneCinema extends React.Component {
                     <img src={cinemaInfo.imgurl} className='cinema-page-img'/>
                 </div>
                 <div className= 'save-later-ui'>
-                Not sure if that's where you want to go out tonight?
-                <button className= 'default-btn' onClick={() => this.handleSubmit() }>Click here to save for later</button>
+                Not sure if you feel like {cinemaInfo.name} tonight?
+                <button className= 'click-btn' onClick={() => this.handleSubmit() }>Click to save this option for later</button>
                 </div>
          {showtimes.length > 0 &&
              <div className='moviesContainer'>
@@ -84,10 +89,7 @@ class OneCinema extends React.Component {
                      let otherDate;
                      let hour;
                      let dateArr=[]
-
-
                      var string_date = show.start_at
-
                      for (var i = 0; i < string_date.length; i++) {
                          // if (string_date[i] == toRemove) {
                          //     string_date.splice(i, 1);
@@ -102,25 +104,35 @@ class OneCinema extends React.Component {
                          var weekDay= day.toString()
                          dateArr.push(weekDay + ', ' + secondDate + ', ' + newDate + '. ')
                      }
-                     console.log('this is dateArr: ',dateArr);
+                     // console.log('this is dateArr: ',dateArr);
                     return(
                         <div className='each-movie'>
-
-
                          {/* <div>Movie: {show.cinema_movie_title}</div> */}
-                        {show.title}
+                         <div className= 'movie-info-container'>
+                             <div className='only-movie-info'>
+                        <strong>{show.cinema_movie_title}</strong>
+                        <br/>
+                        Original Title: <strong>{show.title}</strong>
                          <div> {show.synopsis}</div>
+                     </div>
                          <div>
                              {/* <img src= {show.poster}/> */}
                              <img src={show.thumbnail}/>
                          </div>
+                        </div>
                              {/* <li>Showtime: {show.start_at}</li> */}
+                             <div className='word-showtimes'>showtimes: <br/>
+                             </div>
                              <div className= 'times-container'>
-                             <div className= 'showtimes'>showtimes: <br/>{dateArr}</div>
+
+                             <div className='each-showtime'>
+                             {dateArr.map(each=>
+                                 <p className= 'each-day'>{each}<br/></p>
+                             )}</div>
+
                              </div>
                              {/* <li>Showtime: {dateArr.toLocaleDateString()}, {dateArr.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</li> */}
-                             <div>Language: {show.language}</div>
-
+                             <div className='word-showtimes'>Language: {show.language}</div>
                              {/* <div>{show.movie_id}</div> */}
                              {/* <li><img src={show.thumbnail}/></li> */}
                      </div>
@@ -135,11 +147,5 @@ class OneCinema extends React.Component {
     }
 }
 
-
-// var string_date = '2014-07-21T16:50:34.144Z'
-// var date = new Date(string_date);
-//
-// date.getDate() // returns 21 -> day
-// date.getMonth()
 
 export default connect(mapStateToProps)(OneCinema)

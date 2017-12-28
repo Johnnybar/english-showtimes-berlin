@@ -55,6 +55,13 @@ export default function(state = {}, action) {
         });
     }
 
+    if (action.type == 'SET_SEARCH_RESULTS') {
+
+        state = Object.assign({}, state, {
+            movieInfo: action.movieInfo
+        });
+    }
+
 
     console.log('this is state: ', state);
 
