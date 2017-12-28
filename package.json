@@ -8,9 +8,7 @@
     "start": "npm run build && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "6.10.3"
-  },
+ 
   "dependencies": {
     "allocine-api": "^0.1.9",
     "axios": "^0.15.3",
