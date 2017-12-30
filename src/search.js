@@ -34,6 +34,8 @@ class Search extends React.Component {
                 this.props.dispatch(setSearchResults(results.data))
                 // console.log('this is results in search: ', results.data);
                 const movieInfo = this.props.movieInfo
+            }).catch((err)=>{
+                console.log(err);
             })
 
         }
@@ -52,6 +54,8 @@ class Search extends React.Component {
                         this.props.dispatch(setSearchResults(results.data))
                         // console.log('this is results in search: ', results.data);
                         const movieInfo = this.props.movieInfo
+                    }).catch((err)=>{
+                        console.log(err);
                     })
 
                 }

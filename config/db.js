@@ -37,6 +37,8 @@ exports.getUserSessionId =function(defaultSelected) {
         [defaultSelected]
     ).then((results) => {
         return results.rows;
+    }).catch((err)=>{
+        console.log(err);
     });
 };
 
@@ -49,6 +51,8 @@ exports.updateSessionIdWhereSerial =function( id) {
         [id]
     ).then((results) => {
         return results.rows;
+    }).catch((err)=>{
+        console.log(err);
     });
 };
 
@@ -59,6 +63,8 @@ exports.addToSaved =function(userId, cinemaId) {
         [userId, cinemaId]
     ).then((results) => {
         return results.rows;
+    }).catch((err)=>{
+        console.log(err);
     });
 };
 

@@ -26,6 +26,8 @@ var diskStorage = multer.diskStorage({
     filename: function (req, file, callback) {
         uidSafe(24).then(function(uid) {
             callback(null, uid + path.extname(file.originalname));
+        }).catch((err)=>{
+            console.log(err);
         });
     }
 });
@@ -85,6 +87,8 @@ app.get('/welcome/', function(req, res){
             req.session.user = { id: result[0].id};
             console.log('this is req.session.user in area page: ', req.session.user );
             db.updateSessionIdWhereSerial(req.session.user.id);
+        }).catch((err)=>{
+            console.log(err);
         });
 
 });
@@ -97,6 +101,8 @@ app.get('/getCinemasByArea/:area', function(req,res){
         .then((results)=>{
             res.json(results);
 
+        }).catch((err)=>{
+            console.log(err);
         });
 
 });
@@ -105,6 +111,8 @@ app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 
     db.getCinemaInfo(req.params.cinemaId).then((result)=>{
         res.json(result);
+    }).catch((err)=>{
+        console.log(err);
     });
 
 });
@@ -131,6 +139,8 @@ app.post('/deleteFromSaved/:apiId', (req,res)=>{
                 });
             });
 
+        }).catch((err)=>{
+            console.log(err);
         });
 
 });
@@ -145,9 +155,13 @@ app.get('/getSavedCinemas', (req,res)=>{
 
         db.getCinemasInfoForSaved(cinemaArr).then((result)=>{
             res.json(result);
+        }).catch((err)=>{
+            console.log(err);
         });
 
 
+    }).catch((err)=>{
+        console.log(err);
     });
 });
 

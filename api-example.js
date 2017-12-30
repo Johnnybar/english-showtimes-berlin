@@ -6,7 +6,9 @@ export function getNews() {
     return axios.get(url)
       .then(res => {
           return {type: 'FETCH_NEWS', news: res.data.articles};
-      });
+      }).catch((err)=>{
+          console.log(err);
+      })
 }
 
 // USED IN HER NEWS Component

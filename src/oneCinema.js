@@ -35,6 +35,8 @@ class OneCinema extends React.Component {
     componentDidMount() {
         axios.get('/getCinemaInfo/' +this.props.params.cinema).then((result)=>{
             this.props.dispatch(setCinemaInfo(result))
+        }).catch((err)=>{
+            console.log(err);
         })
         const cinemaId= this.props.params.cinema;
         this.props.dispatch(getShowtimesInfo(cinemaId)).then(()=>{

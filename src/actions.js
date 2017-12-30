@@ -9,6 +9,8 @@ export const getAllCinemas = function(areaId) {
             type:'GET_CINEMAS',
             cinemas:results.data
         };
+    }).catch((err)=>{
+        console.log(err);
     });
 
 };
@@ -35,6 +37,8 @@ export const getShowtimesInfo = function(cinemaId) {
             type:'GET_SHOWTIMES',
             showtimes:noGermanMovies
         };
+    }).catch((err)=>{
+        console.log(err);
     });
 
 };
@@ -59,6 +63,8 @@ export const getMoviesInfo = function(movieId) {
             movieObj: movieObj,
             movieId: movieId
         };
+    }).catch((err)=>{
+        console.log(err);
     });
 
 

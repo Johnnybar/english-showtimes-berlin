@@ -32,6 +32,8 @@ class SavedForLater extends React.Component{
         axios.post('/deleteFromSaved/'+ apiId).then((newCinemaResults)=>{
             console.log('this is new cinema results: ',newCinemaResults );
             this.props.dispatch(deleteSingleCinema(newCinemaResults))
+        }).catch((err)=>{
+            console.log(err);
         })
     }
 
