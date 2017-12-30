@@ -111,6 +111,11 @@
     }
 }
 
+@font-face {
+font-family: Avenir;
+src: url(/System/Library/Fonts/Avenir.ttc);
+}
+
 *{
     font-family: Avenir, 'Helvetica', 'Verdana', sans-serif;
 }
