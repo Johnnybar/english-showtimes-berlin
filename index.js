@@ -121,8 +121,9 @@ app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 });
 
 app.get('/addToSaved/:cinemaId', (req,res)=>{
-    console.log('this is req.session in addToSaved: ', req.session);
+    console.log('this is req.session in addToSaved: ', req.session.user);
     db.addToSaved(req.session.user.id, req.params.cinemaId);
+    // TypeError: Cannot read property 'id' of undefined
 
 
 });
