@@ -1,7 +1,6 @@
 var spicedPg = require('spiced-pg');
 var bcrypt = require('bcryptjs');
 var dbUrl;
-const bucket = require('./config.json');
 
 if (process.env.DATABASE_URL){
     dbUrl = process.env.DATABASE_URL;
