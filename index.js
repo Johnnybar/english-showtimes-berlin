@@ -84,10 +84,14 @@ app.get('/welcome/', function(req, res){
     res.sendFile(__dirname + '/index.html');
     db.getUserSessionId('')
         .then((result)=>{
-            req.session.user = { id: result[0].id};
-            console.log('this is req.session.user in area page: ', req.session.user );
-            db.updateSessionIdWhereSerial(req.session.user.id);
-        }).catch((err)=>{
+            if (req.session){
+                req.session.user = { id: result[0].id};
+                console.log('this is req.session.user in area page: ', req.session.user );
+                db.updateSessionIdWhereSerial(req.session.user.id);
+
+            }
+        })
+        .catch((err)=>{
             console.log(err);
         });
 
