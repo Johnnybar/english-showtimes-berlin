@@ -4,7 +4,6 @@ import App from './app'
 import areaChoice from './areaChoice'
 import AreaChoiceInApp from './areaChoiceInApp'
 import Area from './area'
-import Cinemas from './cinemas'
 import OneCinema from './oneCinema'
 import Welcome from './welcome';
 import Contact from './contact';
@@ -42,7 +41,6 @@ const mainRouter = (
         <Route path="/Contact" component ={Contact} />
         <Route path="/Search" component ={Search} />
 
-        {/* <Route path="/cinemas" component={Cinemas} /> */} */}
 
         <Redirect from ="*" to="/" />
         <IndexRoute component={AreaChoiceInApp} />
