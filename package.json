@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node build.js",
-    "postinstall": "npm run build",
+    "postinstall": "chmod -R +x node_modules/next/dist/bin/next-* && npm run build",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
