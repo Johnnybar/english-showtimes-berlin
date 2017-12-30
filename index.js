@@ -6,7 +6,7 @@ const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 var db = require('./config/db');
 const bodyParser = require('body-parser');
-const s3 = require('./s3');
+
 const multer = require('multer');
 const uidSafe = require('uid-safe');
 const path = require('path');
