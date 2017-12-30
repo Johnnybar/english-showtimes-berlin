@@ -11,8 +11,8 @@ const multer = require('multer');
 const uidSafe = require('uid-safe');
 const path = require('path');
 var csurf = require('csurf');
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+// const server = require('http').Server(app);
+// const io = require('socket.io')(server);
 const api = require('./api.js');
 const CircularJSON = require('circular-json');
 const imdb = require('imdb-api');
@@ -228,13 +228,13 @@ app.get('/logout', ((req,res)=>{
 
 //SOCKET OPTIONS
 
-io.on('connection', function(socket) {
-    console.log(`socket with the id ${socket.id} is now connected`);
-
-    socket.on('disconnect', function() {
-        console.log(`socket with the id ${socket.id} is now disconnected`);
-    });
-});
+// io.on('connection', function(socket) {
+//     console.log(`socket with the id ${socket.id} is now connected`);
+//
+//     socket.on('disconnect', function() {
+//         console.log(`socket with the id ${socket.id} is now disconnected`);
+//     });
+// });
 
 
 /////SERVER LISTEN
