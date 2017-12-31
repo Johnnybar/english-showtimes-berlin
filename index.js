@@ -90,6 +90,12 @@ app.get('/', function(req, res){
 
 app.get('/welcome/', function(req, res){
     res.sendFile(__dirname + '/index.html');
+
+});
+
+app.get('/getCinemasByArea/:area', function(req,res){
+
+    const area = req.params.area;
     db.getUserSessionId('')
         .then((result)=>{
             if (result){
@@ -101,12 +107,6 @@ app.get('/welcome/', function(req, res){
         .catch((err)=>{
             console.log(err);
         });
-
-});
-
-app.get('/getCinemasByArea/:area', function(req,res){
-
-    const area = req.params.area;
     //DB QUERY TO GET LIST
     db.getCinemasByArea(area)
         .then((results)=>{
