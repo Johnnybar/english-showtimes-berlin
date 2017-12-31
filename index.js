@@ -58,7 +58,9 @@ app.use(require("cookie-session")({
     secret: process.env.COOKIE_SESSION_KEY ||
             "mySecret",
     // the key is used to verify the signature
-    maxAge: 1000 * 60 * 60 * 24 // 1 day
+    maxAge: 1000 * 60 * 60 * 24,
+    resave: true,
+    saveUninitialized: true
 }));
 
 
