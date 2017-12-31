@@ -54,6 +54,7 @@ app.use(cookieParser());
 //     maxAge: 1000 * 60 * 60 * 24 * 14,
 //
 // }));
+app.use(express.bodyParser());
 app.use(require("cookie-session")({
     secret: process.env.COOKIE_SESSION_KEY ||
             "mySecret",
