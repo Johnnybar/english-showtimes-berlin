@@ -54,7 +54,6 @@ app.use(cookieSession({
     maxAge: 1000 * 60 * 60 * 24 * 14,
 
 }));
-app.use(app.router);
 
 
 app.use(bodyParser.urlencoded({
@@ -83,11 +82,11 @@ app.get('/', function(req, res){
 
 app.get('/welcome/', function(req, res){
     res.sendFile(__dirname + '/index.html');
-    db.getUserSessionId('')
+    db.getUserSessionId('')//PROBLEM IS Here. NO REQ SESSION BECAUSE THERES NO RESULT
         .then((result)=>{
             if (result){
                 req.session.user = { id: result[0].id};
-                console.log('this is req.session.user.id in area page: ', req.session.user.id);
+                console.log('this is req.session.user in area page: ', req.session.user.id);
                 db.updateSessionIdWhereSerial(req.session.user.id);
             }
         })
