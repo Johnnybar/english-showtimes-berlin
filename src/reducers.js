@@ -63,7 +63,7 @@ export default function(state = {}, action) {
     }
 
 
-    console.log('this is state: ', state);
+    // console.log('this is state: ', state);
 
     return state;
 }

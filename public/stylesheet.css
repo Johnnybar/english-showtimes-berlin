@@ -113,7 +113,7 @@
 
 @font-face {
 font-family: Avenir;
-src: url(/System/Library/Fonts/Avenir.ttc);
+src: url(/System/Library/Fonts/Avenir.ttc) format('TrueType Collection');
 }
 
 *{
