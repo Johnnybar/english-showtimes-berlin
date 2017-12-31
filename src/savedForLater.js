@@ -46,7 +46,6 @@ class SavedForLater extends React.Component{
     }
     render(){
         var cinemas= this.props.cinemasForSaved
-        console.log('these are cinemas: ', cinemas);
         if(cinemas){
         var cinemasList = cinemas.map(eachCinema=>
             <div className='saved-container-with-btn'>

@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-// const hb = require ('express-handlebars');
 const compression = require('compression');
 // const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
@@ -11,8 +10,7 @@ const multer = require('multer');
 const uidSafe = require('uid-safe');
 const path = require('path');
 var csurf = require('csurf');
-// const server = require('http').Server(app);
-// const io = require('socket.io')(server);
+
 const api = require('./api.js');
 const CircularJSON = require('circular-json');
 const imdb = require('imdb-api');
@@ -48,7 +46,7 @@ if (process.env.NODE_ENV != 'production') {
     }));
 }
 
-app.use(cookieParser());
+// app.use(cookieParser());
 // app.use(cookieSession({
 //     secret: 'my super secret',
 //     maxAge: 1000 * 60 * 60 * 24 * 14,
@@ -92,7 +90,7 @@ app.get('/', function(req, res){
 
 app.get('/welcome/', function(req, res){
     res.sendFile(__dirname + '/index.html');
-    db.getUserSessionId('')//PROBLEM IS Here. NO REQ SESSION BECAUSE THERES NO RESULT
+    db.getUserSessionId('')
         .then((result)=>{
             if (result){
                 req.session.user = { id: result[0].id};
@@ -131,7 +129,7 @@ app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 });
 
 app.get('/addToSaved/:cinemaId', (req,res)=>{
-    console.log('this is req.session in addToSaved: ', req.session.user);
+    console.log('this is req.session in addToSaved: ', req.session.user);//PROBLEM IS Here. NO REQ SESSION
     db.addToSaved(req.session.user.id, req.params.cinemaId);
     // this is req.session in addToSaved:  undefined
     // 2017-12-31T00:05:30.920192+00:00 app[web.1]: TypeError: Cannot read property 'id' of undefined
