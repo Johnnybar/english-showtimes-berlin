@@ -113,29 +113,7 @@ src: url(/System/Library/Fonts/Avenir.ttc) format('TrueType Collection');
 }
 
 
-@media only screen and (max-width: 568px) {
-    .paint-white-bg{
-        background-color: white;
-        color:black;
-        text-decoration: none;
-        margin-bottom: 5px;
-        font-size: 25px;
-        margin-left: 20px;
-        cursor: pointer;
-    }
-    .welcome-sign{
-        font-size: 30px;
-    }
-    .outer-cinema-container {
-        background-color: black;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 100;
-        opacity: 0.6;
-        color: white;
-}
-}
+
 
 *{
     font-family: Avenir, 'Helvetica', 'Verdana', sans-serif;
@@ -559,4 +537,28 @@ padding: 30px;
 
 .btn-group{
     min-height: 10vh;
+}
+
+@media only screen and (max-width: 568px) {
+    .paint-white-bg{
+        background-color: white;
+        color:black;
+        text-decoration: none;
+        margin-bottom: 5px;
+        font-size: 25px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    .welcome-sign{
+        font-size: 30px;
+    }
+    .outer-cinema-container {
+        background-color: black;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        opacity: 0.6;
+        color: white;
+}
 }
