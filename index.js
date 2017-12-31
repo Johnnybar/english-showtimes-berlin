@@ -54,7 +54,11 @@ app.use(cookieParser());
 //     maxAge: 1000 * 60 * 60 * 24 * 14,
 //
 // }));
-app.use(express.bodyParser());
+// app.use(express.bodyParser());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(bodyParser.json());
 app.use(require("cookie-session")({
     secret: process.env.COOKIE_SESSION_KEY ||
             "mySecret",
@@ -66,10 +70,6 @@ app.use(require("cookie-session")({
 }));
 
 
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-app.use(bodyParser.json());
 app.use(express.static('./public'));
 app.use(csurf());
 app.use(function(req, res, next){
