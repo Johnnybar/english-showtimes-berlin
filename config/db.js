@@ -44,7 +44,8 @@ exports.getUserSessionId =function(defaultSelected) {
 };
 
 
-exports.updateSessionIdWhereSerial =function( id) {
+exports.updateSessionIdWhereSerial =function(id) {
+    console.log('this is id in updateSessionIdWhereSerial: ', id);
     return db.query(
         `UPDATE users
         SET user_id =($1)

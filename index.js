@@ -82,7 +82,7 @@ app.get('/', function(req, res){
 
 app.get('/welcome/', function(req, res){
     res.sendFile(__dirname + '/index.html');
-    db.getUserSessionId('')//PROBLEM IS Here. NO REQ SESSION BECAUSE THERES NO RESULT
+    db.getUserSessionId('')
         .then((result)=>{
             if (result){
                 req.session.user = { id: result[0].id};
