@@ -126,6 +126,15 @@ src: url(/System/Library/Fonts/Avenir.ttc) format('TrueType Collection');
     .welcome-sign{
         font-size: 30px;
     }
+    .outer-cinema-container {
+        background-color: black;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        opacity: 0.6;
+        color: white;
+}
 }
 
 *{
