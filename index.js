@@ -86,7 +86,7 @@ app.get('/welcome/', function(req, res){
         .then((result)=>{
             if (result){
                 req.session.user = { id: result[0].id};
-                console.log('this is req.session.user in area page: ', req.session.user );
+                console.log('this is req.session.user.id in area page: ', req.session.user.id);
                 db.updateSessionIdWhereSerial(req.session.user.id);
             }
         })

@@ -31,12 +31,12 @@ exports.getCinemasByArea = function(area) {
 ///THESE TWO QUERIES CREATE A ROW, FIRST ONE CREATES IT, SECOND ONE USES THE SERIAL KEY TO UPDATE THE USER ID,
 //TO ALLOW MULTIPLE ROWS OF SELECTIONS WITH SAME USER ID
 exports.getUserSessionId =function(defaultSelected) {
-    console.log('herrrrree');
     return db.query(
         'INSERT INTO users (selected) VALUES ($1) returning id',
         [defaultSelected]
     ).then((results) => {
-        console.log('this is results in problem dbquery: ', results);
+        // console.log('this is results in problem dbquery: ', results);
+        //         this is results in problem dbquery:  Result { rows: [ anonymous { id: 17 } ],
         return results.rows;
     }).catch((err)=>{
         console.log(err);
