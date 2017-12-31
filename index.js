@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 // const hb = require ('express-handlebars');
 const compression = require('compression');
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 var db = require('./config/db');
 const bodyParser = require('body-parser');
@@ -49,10 +49,16 @@ if (process.env.NODE_ENV != 'production') {
 }
 
 app.use(cookieParser());
-app.use(cookieSession({
-    secret: 'my super secret',
-    maxAge: 1000 * 60 * 60 * 24 * 14,
-
+// app.use(cookieSession({
+//     secret: 'my super secret',
+//     maxAge: 1000 * 60 * 60 * 24 * 14,
+//
+// }));
+app.use(require("cookie-session")({
+    secret: process.env.COOKIE_SESSION_KEY ||
+            "mySecret",
+    // the key is used to verify the signature
+    maxAge: 1000 * 60 * 60 * 24 // 1 day
 }));
 
 
