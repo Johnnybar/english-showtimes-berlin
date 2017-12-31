@@ -48,7 +48,7 @@ if (process.env.NODE_ENV != 'production') {
     }));
 }
 
-app.use(cookieParser("mySecret"));
+app.use(cookieParser());
 // app.use(cookieSession({
 //     secret: 'my super secret',
 //     maxAge: 1000 * 60 * 60 * 24 * 14,
@@ -60,7 +60,8 @@ app.use(require("cookie-session")({
     // the key is used to verify the signature
     maxAge: 1000 * 60 * 60 * 24,
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: { secure: !true }
 }));
 
 
