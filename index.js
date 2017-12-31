@@ -82,7 +82,7 @@ app.get('/', function(req, res){
 
 app.get('/welcome/', function(req, res){
     res.sendFile(__dirname + '/index.html');
-    db.getUserSessionId('')
+    db.getUserSessionId('')//PROBLEM IS Here. NO REQ SESSION BECAUSE THERES NO RESULT
         .then((result)=>{
             if (result){
                 req.session.user = { id: result[0].id};
@@ -123,8 +123,9 @@ app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 app.get('/addToSaved/:cinemaId', (req,res)=>{
     console.log('this is req.session in addToSaved: ', req.session.user);
     db.addToSaved(req.session.user.id, req.params.cinemaId);
-    // TypeError: Cannot read property 'id' of undefined
-
+    // this is req.session in addToSaved:  undefined
+    // 2017-12-31T00:05:30.920192+00:00 app[web.1]: TypeError: Cannot read property 'id' of undefined
+    // 2017-12-31T00:05:30.920194+00:00 app[web.1]:     at app.get (/app/index.js:125:36)
 
 });
 
@@ -151,7 +152,7 @@ app.post('/deleteFromSaved/:apiId', (req,res)=>{
 app.get('/getSavedCinemas', (req,res)=>{
     db.getSavedCinemas(req.session.user.id).then((results)=>{
         var cinemas = results.slice(1);
-        console.log('these are cinemas:', cinemas);
+        // console.log('these are cinemas:', cinemas);
         let cinemaArr=[];
         for (var i = 0; i < cinemas.length; i++) {
             cinemaArr.push(cinemas[i].selected);

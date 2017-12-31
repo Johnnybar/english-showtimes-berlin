@@ -2,9 +2,9 @@ import React from 'react';
 import axios from './axios';
 
 export const getAllCinemas = function(areaId) {
-    console.log('in actions');
+    // console.log('in actions');
     return axios.get('/getCinemasByArea/'+ areaId).then((results)=>{
-        console.log('this is results.data ', results.data);
+        // console.log('this is results.data ', results.data);
         return {
             type:'GET_CINEMAS',
             cinemas:results.data
@@ -29,8 +29,8 @@ export const getShowtimesInfo = function(cinemaId) {
         var noGermanMovies = firstResult.filter(movie=>
             movie.language ==='en'
         );
-        console.log('this is the original result of showtimes array: ', firstResult);
-        console.log('this is noGermanMovies: ', noGermanMovies);
+        // console.log('this is the original result of showtimes array: ', firstResult);
+        // console.log('this is noGermanMovies: ', noGermanMovies);
 
 
         return {
