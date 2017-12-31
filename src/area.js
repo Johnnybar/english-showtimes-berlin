@@ -35,7 +35,7 @@ class Area extends React.Component{
         var areaId =this.props.params.area
         cinemas = this.props.cinemas
         if(cinemas){
-            console.log('these are cinemas');
+            // console.log('these are cinemas');
             cinemasList = cinemas.map(eachCinema=>
             <div className='cinema-outer'>
                 <div className='cinema-border'>

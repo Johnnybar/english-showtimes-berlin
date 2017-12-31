@@ -24,7 +24,7 @@ class OneCinema extends React.Component {
     }
     handleSubmit() {
 
-        console.log('running handleSubmit in oneCinema');
+        // console.log('running handleSubmit in oneCinema');
         axios.get('/addToSaved/'+ this.props.params.cinema)
         document.getElementById('saved-icon').style.animation ="growExplode 0.5s ease-in-out alternate"
         document.getElementById('saved-icon').style.animationIterationCount ="2"
@@ -40,8 +40,8 @@ class OneCinema extends React.Component {
         })
         const cinemaId= this.props.params.cinema;
         this.props.dispatch(getShowtimesInfo(cinemaId)).then(()=>{
-            console.log('this is movieArr: ', this.props.movieArr);
-            console.log('this is props showtimes', this.props.showtimes);
+            // console.log('this is movieArr: ', this.props.movieArr);
+            // console.log('this is props showtimes', this.props.showtimes);
             const showtimes = this.props.showtimes;//THIS IS THE LIST WITH ALL THE SHOWTIMES INFO
             const movieInfo = this.props.movieArr //THIS IS THE ARRAY WITH THE SYNOPSIS AND POSTER
             //NEED TO GET MOVIE NAMES FROM THE API

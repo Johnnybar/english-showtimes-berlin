@@ -164,7 +164,7 @@ a:visited{
     color:black;
     text-decoration: none;
     margin-bottom: 5px;
-    font-size: 12px;
+    font-size: 14px;
     margin-left: 20px;
     cursor: pointer;
 }
@@ -173,7 +173,7 @@ a:visited{
     color:black;
     text-decoration: none;
     margin-bottom: 5px;
-    font-size: 12px;
+    font-size: 14px;
     width: 30vw
 }
 .paint-white-bg:hover{
@@ -205,8 +205,8 @@ text-align: center;
 }
 
 .area-cinema-img{
-    width: 20vw;
-    height: 40vh;
+    /* width: 20vw; */
+    height: 30vh;
 
 
 }
