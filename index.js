@@ -48,19 +48,14 @@ if (process.env.NODE_ENV != 'production') {
     }));
 }
 
-// app.use(cookieParser());
-// app.use(cookieSession({
-//     secret: 'my super secret',
-//     maxAge: 1000 * 60 * 60 * 24 * 14,
-//
-// }));
-app.use(express.cookieParser());
-app.use(express.session({
+app.use(cookieParser());
+app.use(cookieSession({
     secret: 'my super secret',
     maxAge: 1000 * 60 * 60 * 24 * 14,
 
 }));
 app.use(app.router);
+
 
 app.use(bodyParser.urlencoded({
     extended: false
