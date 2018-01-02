@@ -71,7 +71,7 @@ exports.addToSaved =function(userId, cinemaId) {
 };
 
 //GET SAVED CINEMAS
-exports.getSavedCinemas = function( user_id){
+exports.getSavedCinemas = function(user_id){
     return db.query(
         'SELECT selected FROM users WHERE user_id =($1)',
         [user_id]
