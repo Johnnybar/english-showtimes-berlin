@@ -118,6 +118,14 @@ app.get('/getCinemasByArea/:area', function(req,res){
 
 });
 
+app.get('/addToSaved/:cinemaId', (req,res)=>{
+    console.log('this is req.session in addToSaved: ', req.session.user);//PROBLEM IS Here. NO REQ SESSION
+    db.addToSaved(req.session.user.id, req.params.cinemaId);
+    // this is req.session in addToSaved:  undefined
+    // 2017-12-31T00:05:30.920192+00:00 app[web.1]: TypeError: Cannot read property 'id' of undefined
+    // 2017-12-31T00:05:30.920194+00:00 app[web.1]:     at app.get (/app/index.js:125:36)
+
+});
 app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 
     db.getCinemaInfo(req.params.cinemaId).then((result)=>{
@@ -128,14 +136,6 @@ app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 
 });
 
-app.get('/addToSaved/:cinemaId', (req,res)=>{
-    console.log('this is req.session in addToSaved: ', req.session.user);//PROBLEM IS Here. NO REQ SESSION
-    db.addToSaved(req.session.user.id, req.params.cinemaId);
-    // this is req.session in addToSaved:  undefined
-    // 2017-12-31T00:05:30.920192+00:00 app[web.1]: TypeError: Cannot read property 'id' of undefined
-    // 2017-12-31T00:05:30.920194+00:00 app[web.1]:     at app.get (/app/index.js:125:36)
-
-});
 
 app.post('/deleteFromSaved/:apiId', (req,res)=>{
     db.deleteFromSaved(req.session.user.id, req.params.apiId)
