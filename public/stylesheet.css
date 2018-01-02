@@ -540,7 +540,12 @@ padding: 30px;
 }
 
 @media only screen and (max-width: 568px) {
-    .paint-white-bg{
+.searchResultsContainer {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.paint-white-bg{
     text-align: center;
     background-color: white;
     color: black;
@@ -550,11 +555,17 @@ padding: 30px;
     margin-left: 9px;
 
     cursor: pointer;
-    }
-    .welcome-sign{
+}
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.welcome-sign{
         font-size: 25px;
     }
-    .outer-cinema-container {
+.outer-cinema-container {
         background-color: black;
         position: absolute;
         width: 100%;
@@ -606,6 +617,17 @@ padding: 30px;
 #logo{
     width: 11vw;
     margin-top: 1vh;
+    }
+.bg-white {
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    }
+
+#movie-search {
+    margin-bottom: 10px;
+    width: 50vw;
     }
 .side-of-choice-in-app {
     color: white;
