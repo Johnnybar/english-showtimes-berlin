@@ -5,12 +5,10 @@ const compression = require('compression');
 const cookieParser = require('cookie-parser');
 var db = require('./config/db');
 const bodyParser = require('body-parser');
-
 const multer = require('multer');
 const uidSafe = require('uid-safe');
 const path = require('path');
 var csurf = require('csurf');
-
 const api = require('./api.js');
 const CircularJSON = require('circular-json');
 const imdb = require('imdb-api');
@@ -62,9 +60,9 @@ app.use(require("cookie-session")({
             "mySecret",
     // the key is used to verify the signature
     maxAge: 1000 * 60 * 60 * 24,
-    resave: true,
-    saveUninitialized: true,
-    cookie: { secure: !true }
+    // resave: true,
+    // saveUninitialized: true,
+    // cookie: { secure: !true }
 }));
 
 
