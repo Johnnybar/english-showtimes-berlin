@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './logo';
 import { Link } from 'react-router';
-import axios from 'axios'
+import axios from './axios'
 import { connect } from 'react-redux';
 import {getCinemasForSaved, deleteSingleCinema} from './actions'
 
@@ -29,7 +29,7 @@ class SavedForLater extends React.Component{
         console.log('running handleSubmit');
         // var smtg= this.props.cinemasForSaved
 
-        axios.post('/deleteFromSaved/'+ apiId).then((newCinemaResults)=>{
+        axios.get('/deleteFromSaved/'+ apiId).then((newCinemaResults)=>{
             console.log('this is new cinema results: ',newCinemaResults );
             this.props.dispatch(deleteSingleCinema(newCinemaResults))
         }).catch((err)=>{

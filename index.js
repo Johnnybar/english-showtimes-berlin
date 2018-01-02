@@ -135,7 +135,7 @@ app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 });
 
 
-app.post('/deleteFromSaved/:apiId', (req,res)=>{
+app.get('/deleteFromSaved/:apiId', (req,res)=>{
     db.deleteFromSaved(req.session.user.id, req.params.apiId)
         .then(()=>{
             db.getSavedCinemas(req.session.user.id).then((resultWithEmptyElement)=>{
