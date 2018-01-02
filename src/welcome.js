@@ -15,10 +15,10 @@ export default class Welcome extends React.Component{
     }
 
     componentDidMount() {
-        let iframeDesktop = document.getElementById('youtube');
-        let dataSrc= "https://vignette.wikia.nocookie.net/joke-battles/images/5/5a/Black.jpg/revision/latest?cb=20161223050425"
-        if(window.matchMedia("(min-width: 480px)").matches) {
-            iframeDesktop.attr('src', dataSrc)
+        // let iframeDesktop = document.getElementById('youtube');
+        // let dataSrc= "https://vignette.wikia.nocookie.net/joke-battles/images/5/5a/Black.jpg/revision/latest?cb=20161223050425"
+        // if(window.matchMedia("(min-width: 480px)").matches) {
+        //     iframeDesktop.attr('src', dataSrc)
     }
     render(){
         return(
