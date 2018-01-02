@@ -600,7 +600,8 @@ padding: 30px;
     border-radius: 4px;
 }
 #choice-in-app-dropdown {
-    margin-left: 17vw;
+    margin-left: 10vw;
+    position: relative;
 }
 #logo{
     width: 11vw;
@@ -608,17 +609,15 @@ padding: 30px;
     }
 .side-of-choice-in-app {
     color: white;
-    margin-left: 8vw;
+    margin-left: 3vw;
     border-left-style: solid;
-    padding: 4vw;
+    padding: 2vw;
     margin-top: 4vh;
+    width: 100vw;
     }
-    .movie-info-container {
-    /* display: flex; */
-    /* flex-direction: row-reverse; */
-    /* justify-content: flex-end; */
-    /* margin-left: 10vw; */
-    /* overflow: visible; */
+.movie-info-container {
+    position: relative;
+    display: inline;
 }
 .each-movie {
     padding: 20px;
