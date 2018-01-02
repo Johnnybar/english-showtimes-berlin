@@ -561,10 +561,21 @@ padding: 30px;
         z-index: 100;
         opacity: 0.6;
         color: white;
+        text-align: center;
 }
 .area-cinema-img {
     width: 100%;
 
+}
+.app-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 25px;
 }
 #logo{
 
