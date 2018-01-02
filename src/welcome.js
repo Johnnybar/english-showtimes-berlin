@@ -14,7 +14,10 @@ export default class Welcome extends React.Component{
 
     }
 
+    componentDidMount() {
 
+
+    }
     render(){
         return(
             <div>

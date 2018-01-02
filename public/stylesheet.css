@@ -541,12 +541,13 @@ padding: 30px;
 
 @media only screen and (max-width: 568px) {
     .paint-white-bg{
-        background-color: white;
+    text-align: center;
+    background-color: white;
     color: black;
     text-decoration: none;
     margin-bottom: 5px;
     font-size: 9px;
-    margin-left: 14px;
+    margin-left: 9px;
 
     cursor: pointer;
     }
@@ -575,9 +576,41 @@ padding: 30px;
 .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    font-size: 25px;
+    font-size: 22px;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+#choice-in-app-dropdown {
+    margin-left: 17vw;
 }
 #logo{
-
+    width: 11vw;
+    margin-top: 1vh;
+    }
+.side-of-choice-in-app {
+    color: white;
+    margin-left: 8vw;
+    border-left-style: solid;
+    padding: 4vw;
+    margin-top: 4vh;
     }
 }
