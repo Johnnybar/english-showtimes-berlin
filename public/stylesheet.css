@@ -613,4 +613,26 @@ padding: 30px;
     padding: 4vw;
     margin-top: 4vh;
     }
+    .movie-info-container {
+    /* display: flex; */
+    /* flex-direction: row-reverse; */
+    /* justify-content: flex-end; */
+    /* margin-left: 10vw; */
+    /* overflow: visible; */
+}
+.each-movie {
+    padding: 20px;
+    width: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom-style: solid;
+}
+.each-day {
+    border: 1px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px;
+    margin-left: 1px;
+    width: 28vw;
+}
 }
