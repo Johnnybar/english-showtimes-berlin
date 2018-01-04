@@ -22,9 +22,9 @@ export default class areaChoice extends React.Component {
 
 
     handleClick(e) {
-        console.log('in handleClick');
+
          this.setState({selectValue: e.target.value}, ()=> {
-             console.log('this is the selectVal state: ',this.state.selectValue)
+             // console.log('this is the selectVal state: ',this.state.selectValue)
 
 
              browserHistory.push(`${this.state.selectValue}`);

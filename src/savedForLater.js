@@ -26,11 +26,11 @@ class SavedForLater extends React.Component{
     }
     handleSubmit(apiId) {
 
-        console.log('running handleSubmit');
+        // console.log('running handleSubmit');
         // var smtg= this.props.cinemasForSaved
 
         axios.get('/deleteFromSaved/'+ apiId).then((newCinemaResults)=>{
-            console.log('this is new cinema results: ',newCinemaResults );
+            // console.log('this is new cinema results: ',newCinemaResults );
             this.props.dispatch(deleteSingleCinema(newCinemaResults))
         }).catch((err)=>{
             console.log(err);
