@@ -26,8 +26,8 @@ export default class App extends React.Component {
                 <a className='paint-white-bg' onClick={browserHistory.goBack}><br/>Back</a>
                 <Link className='paint-white-bg' to='/welcome/'><br/>Showtimes By Area</Link>
                 <Link id='saved-icon' className='paint-white-bg' to='/SavedForLater'><br/>Saved Cinemas</Link>
-                <Link className='paint-white-bg' to='/Search'><br/>Search Our DB</Link>
-                <Link className='paint-white-bg' to='/Contact'><br/>Contact Us</Link>
+                <Link className='paint-white-bg' to='/Search'><br/>Search DB</Link>
+                <Link className='paint-white-bg' to='/Contact'><br/>Contact</Link>
             </div>
 
 
