@@ -5,9 +5,9 @@ if (process.env.DATABASE_URL){
     dbUrl = process.env.DATABASE_URL;
 }
 else{
-    var userInfo = require('./secrets.json');
-    var user = userInfo.username;
-    var pass = userInfo.password;
+    // var userInfo = require('./secrets.json');
+    var user = "postgres";
+    var pass = "password";
     dbUrl = `postgres:${user}:${pass}psql@localhost:5432/showtimes`;
 }
 var db = spicedPg(dbUrl);

@@ -24,7 +24,8 @@ export default class Welcome extends React.Component{
         return(
             <div>
                 <div className='iframe-container'>
-                <iframe id='youtube' src="https://c1.staticflickr.com/9/8675/16016018273_c720238737_b.jpg"  onload="this.width=screen.width;this.height=screen.height" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <div className='iframe-bg'></div>
+                {/* <iframe id='youtube' src="https://c1.staticflickr.com/9/8675/16016018273_c720238737_b.jpg"  onload="this.width=screen.width;this.height=screen.height" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> */}
                 </div>
                 {/* <Logo /> */}
 
