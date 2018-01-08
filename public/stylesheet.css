@@ -247,7 +247,7 @@ text-align: center;
 }
 
 .app-container{
-    background-image: url(cinema-bg.jpg);
+    background-image: url(curtain1.jpg);
 background-repeat: no-repeat;
 background-size: cover;
     min-height: 100vh;
@@ -610,6 +610,7 @@ padding: 30px;
 
 }
 .app-container {
+    background-image: url(curtain1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
