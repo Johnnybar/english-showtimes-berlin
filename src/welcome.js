@@ -24,7 +24,7 @@ export default class Welcome extends React.Component{
         return(
             <div>
 
-                <iframe id='youtube' src="/conner-murphy.jpg" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe id='youtube' src="https://c1.staticflickr.com/2/1451/25750387696_5b124b9797_b.jpg"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 {/* <Logo /> */}
 
                 <div className='hero-welcome-page'><h2>Choose your favorite Berlin kiez to get started</h2></div>
