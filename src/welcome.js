@@ -24,7 +24,7 @@ export default class Welcome extends React.Component{
         return(
             <div>
 
-                <iframe scrolling="auto" allowtransparency="true" name="main" style="width:100%;height:90%;background-image:url(conner-murphy.jpg)"> </iframe>
+                <iframe scrolling="auto" allowtransparency="true" name="main" styles={{width:"100%";height:"90%" ;background-image:"url(conner-murphy.jpg)"}}> </iframe>
                 {/* <Logo /> */}
 
                 <div className='hero-welcome-page'><h2>Choose your favorite Berlin kiez to get started</h2></div>
