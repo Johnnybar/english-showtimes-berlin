@@ -565,6 +565,11 @@ padding: 30px;
 }
 
 @media only screen and (max-width: 568px) {
+    .hero-welcome-page {
+    text-align: center;
+    color: white;
+    margin-top: 20vh;
+}
 .searchResultsContainer {
     display: flex;
     flex-direction: column;
