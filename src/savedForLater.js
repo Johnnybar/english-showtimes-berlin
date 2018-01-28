@@ -65,8 +65,20 @@ class SavedForLater extends React.Component{
     }
         return(
             <div className='saved-top-container'>
+                <div className='saved-container-with-btn'>
+                    <h4 className='paint-white-bg'><i>Removing Sample Cinema not possible in demo mode</i></h4>
+                    <div className='container-of-both-saved'>
+                        <a href='/sample'>
+                        <div className='outer-cinema-container'>
+                            <div className='text-inside-cinema'>Sample Cinema</div>
+                        </div>
+                        <div className='each-cinema-container'>
+                            <img src='sample-cinema.jpeg' className='area-cinema-img'/>
+                        </div>
+                    </a>
+                </div>
+            </div>
                 {cinemasList}
-
             </div>
         )
     }

@@ -124,6 +124,8 @@ app.get('/addToSaved/:cinemaId', (req,res)=>{
     // 2017-12-31T00:05:30.920194+00:00 app[web.1]:     at app.get (/app/index.js:125:36)
 
 });
+
+
 app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 
     db.getCinemaInfo(req.params.cinemaId).then((result)=>{
@@ -174,6 +176,7 @@ app.get('/getSavedCinemas', (req,res)=>{
         console.log(err);
     });
 });
+
 
 
 app.get('/getShowtimesInfo/:cinemaId', function(req,res){

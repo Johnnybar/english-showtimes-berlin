@@ -70,6 +70,8 @@ exports.addToSaved =function(userId, cinemaId) {
     });
 };
 
+
+
 //GET SAVED CINEMAS
 exports.getSavedCinemas = function(user_id){
     return db.query(

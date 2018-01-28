@@ -60,6 +60,28 @@ class Area extends React.Component{
         return(
             <div className='page-stretcher'>
                 <div className='welcome-sign'>Welcome to Cinemas in {areaId}</div>
+                <div className='all-cinemas-container'>
+                <div className='cinema-outer'>
+                    <div className='cinema-border'>
+                        <p className='paint-white-bg'><i>Please choose this sample cinema in demo mode. <br/>It is a saved version of the original showtimes API result.</i></p>
+                    <div className='container-of-both'>
+                        <a href='/sample'>
+                            <div className='outer-cinema-container'>
+                                <div className='text-inside-cinema'>Sample Cinema</div>
+                            </div>
+                            <div className='each-cinema-container'>
+                                <img src='/sample-cinema.jpeg' className='area-cinema-img'/>
+                            </div>
+                            </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {/* <div className='sample-cinema'>
+                    <a href='/sample'>
+                    <img src='/sample-cinema.jpeg' className='area-cinema-img'/>
+                    </a>
+                </div> */}
                 <div className='all-cinemas-container'>{cinemasList}</div>
 
             </div>

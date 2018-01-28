@@ -81,8 +81,8 @@ class OneCinema extends React.Component {
                     <img src={cinemaInfo.imgurl} className='cinema-page-img'/>
                 </div>
                 <div className= 'save-later-ui'>
-                Not sure if you feel like {cinemaInfo.name} tonight?
-                <button className= 'click-btn' onClick={() => this.handleSubmit() }>Click to save this option for later</button>
+                Not sure about {cinemaInfo.name} tonight?
+                <button className= 'click-btn' onClick={() => this.handleSubmit() }>Save for later</button>
                 </div>
          {showtimes.length > 0 &&
              <div className='moviesContainer'>

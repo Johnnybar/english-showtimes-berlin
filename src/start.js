@@ -9,6 +9,7 @@ import Welcome from './welcome';
 import Contact from './contact';
 import Search from './search';
 import SavedForLater from './savedForLater'
+import Sample from './sample'
 import { Router, Route, IndexRoute, hashHistory, browserHistory, Redirect } from 'react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -40,6 +41,7 @@ const mainRouter = (
         <Route path="/SavedForLater" component ={SavedForLater} />
         <Route path="/Contact" component ={Contact} />
         <Route path="/Search" component ={Search} />
+        <Route path="/sample" component={Sample}/>
 
 
         <Redirect from ="*" to="/" />
