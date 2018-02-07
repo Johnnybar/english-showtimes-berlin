@@ -43,7 +43,6 @@ componentDidMount() {
         <div className='area-choice-ui'>
 
 
-            {/* THIS IS THE OPTION THAT WORKS WITH REACT, BUT MAYBE NOT WITH handlebars */}
             <SplitButton title="My Area..." pullRight id="split-button-pull-right">
         <MenuItem href='/areas/Kreuzberg' eventKey="1">Kreuzberg</MenuItem>
         <MenuItem href="/areas/Neukoelln" eventKey="2">Neukoelln</MenuItem>
@@ -53,7 +52,6 @@ componentDidMount() {
         <MenuItem href="/areas/Friedrichshain" eventKey="6">Friedrichshain</MenuItem>
         <MenuItem href="/areas/Wedding"eventKey="7">Wedding</MenuItem>
       </SplitButton>
-
 
 
         </div>

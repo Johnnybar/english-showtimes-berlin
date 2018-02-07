@@ -60,12 +60,8 @@ app.use(require("cookie-session")({
             "mySecret",
     // the key is used to verify the signature
     maxAge: 1000 * 60 * 60 * 24,
-    // resave: true,
-    // saveUninitialized: true,
-    // cookie: { secure: !true }
+
 }));
-
-
 app.use(express.static('./public'));
 app.use(csurf());
 app.use(function(req, res, next){
@@ -129,6 +125,7 @@ app.get('/addToSaved/:cinemaId', (req,res)=>{
 app.get('/getCinemaInfo/:cinemaId', (req,res)=>{
 
     db.getCinemaInfo(req.params.cinemaId).then((result)=>{
+        console.log('this is getCinemaInfo; ',result);
         res.json(result);
     }).catch((err)=>{
         console.log(err);
@@ -254,4 +251,4 @@ app.get('/logout', ((req,res)=>{
 //     console.log("Listening on Port 3000");
 // });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 8080);

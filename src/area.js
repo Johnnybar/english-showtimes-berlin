@@ -63,7 +63,7 @@ class Area extends React.Component{
                 <div className='all-cinemas-container'>
                 <div className='cinema-outer'>
                     <div className='cinema-border'>
-                        <p className='paint-white-bg'><i>Please choose this sample cinema in demo mode. <br/>It is a saved version of the original showtimes API result.</i></p>
+                        <p className='paint-white-bg' style={{textAlign:'center'}}><i>Please choose this sample cinema in demo mode. <br/>It is a saved result of the original showtimes API. <br/> (Use of API this API was very high-priced)</i></p>
                     <div className='container-of-both'>
                         <a href='/sample'>
                             <div className='outer-cinema-container'>

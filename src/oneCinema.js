@@ -60,14 +60,16 @@ class OneCinema extends React.Component {
         const cinemaInfo= this.props.cinemaInfo
         const showtimes = this.props.showtimes;//THIS IS THE LIST WITH ALL THE SHOWTIMES INFO
         const movieInfo = this.props.movieArr //THIS IS THE ARRAY WITH THE SYNOPSIS AND POSTER
-        if (!this.props.showtimes) {
+        if (!this.props.showtimes && !this.props.cinemaInfo) {
             return (
                 <div className='loader-container'>
                 <div className="loader"></div>
+
                 </div>
 
             )
         }
+
 
         //
         return(
@@ -84,7 +86,7 @@ class OneCinema extends React.Component {
                 Not sure about {cinemaInfo.name} tonight?
                 <button className= 'click-btn' onClick={() => this.handleSubmit() }>Save for later</button>
                 </div>
-         {showtimes.length > 0 &&
+         {showtimes && showtimes.length > 0 &&
              <div className='moviesContainer'>
                  {showtimes.map(show =>{
                      let eachDate;
