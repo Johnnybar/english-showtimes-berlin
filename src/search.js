@@ -83,6 +83,9 @@ componentDidMount() {
     return (
 
         <div className= 'search-container'>
+            <p className='paint-white-bg' style={{textAlign:'center'}}>Sorry, this <a style={{textDecoration: 'underline'}} href='https://github.com/theapache64/movie_db'>Movie Search API</a> decided to retire and is currently down.</p>
+
+            <p className='paint-white-bg' style={{textAlign:'center'}}>But will soon be replaced by <a style={{textDecoration: 'underline'}} href='https://www.themoviedb.org/documentation/api'>this one</a></p>
             <textarea id='movie-search' onKeyDown={this.onTestChange} value={this.state.value} placeholder='Search movie by title' onChange={(e) => this.setState({text: e.target.value})}></textarea>
             <button className='click-btn' onClick={this.handleSubmit} >Search</button>
             {this.props.movieInfo  &&

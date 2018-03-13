@@ -207,7 +207,7 @@ app.get('/getMoviesInfo/:movieId', function(req,res){
 });
 
 app.get('/getSpecificMovieInfo/:movieTitle', (req,res)=>{
-    // console.log('this is req params in indexjs: ', req.params);
+    console.log('this is req params in indexjs: ', req.params);
     const movieTitle = req.params.movieTitle;
 
     api.getSpecificMovieInfo(movieTitle)

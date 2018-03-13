@@ -11,6 +11,7 @@ let myAxios = axios.create({
     }
 });
 
+
 exports.getShowtimesInfo = function(cinemaId){
     return myAxios.get('https://api.internationalshowtimes.com/v4/showtimes', {
 
@@ -28,7 +29,7 @@ exports.getMoviesInfo = function(movieId){
 
 exports.getSpecificMovieInfo = function(movieTitle){
 
-    return myAxios.get('http://theapache64.com/movie_db/search?keyword='+ movieTitle);
+    return axios.get('http://theapache64.com/movie_db/search?keyword='+ movieTitle);
 
 };
 
