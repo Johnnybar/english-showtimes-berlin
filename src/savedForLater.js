@@ -6,12 +6,7 @@ import { connect } from 'react-redux';
 import {getCinemasForSaved, deleteSingleCinema} from './actions'
 
 
-
-// import Api from './api'
-// var modules = require('./modules');
-
 const mapStateToProps = function(state) {
-    // console.log('this is state.cinemasForSaved: ', state.cinemasForSaved);
     return {
         cinemasForSaved: state.cinemasForSaved,
 
@@ -25,12 +20,7 @@ class SavedForLater extends React.Component{
 
     }
     handleSubmit(apiId) {
-
-        // console.log('running handleSubmit');
-        // var smtg= this.props.cinemasForSaved
-
         axios.get('/deleteFromSaved/'+ apiId).then((newCinemaResults)=>{
-            // console.log('this is new cinema results: ',newCinemaResults );
             this.props.dispatch(deleteSingleCinema(newCinemaResults))
         }).catch((err)=>{
             console.log(err);

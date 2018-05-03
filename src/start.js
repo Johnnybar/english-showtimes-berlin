@@ -25,7 +25,6 @@ let router;
 const outerRouter = (
     <Router history={hashHistory}>
         <Route path="/" component={Welcome}>
-            {/* <Route path="/" component={areaChoice} /> */}
             <IndexRoute component={areaChoice} />
   	</Route>
     </Router>
@@ -45,7 +44,6 @@ const mainRouter = (
 
         <Redirect from ="*" to="/" />
         <IndexRoute component={AreaChoiceInApp} />
-        {/* IS THIS THE CORRECT ROUTE FOR INDEX?? */}
     </Route>
     </Router>
 </Provider>

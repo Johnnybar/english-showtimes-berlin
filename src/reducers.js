@@ -1,4 +1,3 @@
-// import React from 'react';
 
 export default function(state = {}, action) {
 
@@ -26,8 +25,7 @@ export default function(state = {}, action) {
                     return Object.assign({}, showtime, action.movieObj);
                 }
                 return showtime;
-            })
-        // movieArr: action.movieArr
+            });
         });
     }
 
@@ -61,9 +59,6 @@ export default function(state = {}, action) {
             movieInfo: action.movieInfo
         });
     }
-
-
-    // console.log('this is state: ', state);
 
     return state;
 }

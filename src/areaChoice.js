@@ -24,39 +24,30 @@ export default class areaChoice extends React.Component {
     handleClick(e) {
 
          this.setState({selectValue: e.target.value}, ()=> {
-             // console.log('this is the selectVal state: ',this.state.selectValue)
-
-
              browserHistory.push(`${this.state.selectValue}`);
-             // location.replace(`${this.state.selectValue}`);
          });
 
     }
 
 componentDidMount() {
-
+  
 }
-    render() {
+render() {
 
-    return (
-        <div className='extend-choice'>
-        <div className='area-choice-ui'>
+  return (<div className='extend-choice'>
+    <div className='area-choice-ui'>
 
-
-            <SplitButton title="My Area..." pullRight id="split-button-pull-right">
+      <SplitButton title="My Area..." pullRight="pullRight" id="split-button-pull-right">
         <MenuItem href='/areas/Kreuzberg' eventKey="1">Kreuzberg</MenuItem>
         <MenuItem href="/areas/Neukoelln" eventKey="2">Neukoelln</MenuItem>
         <MenuItem href="/areas/Schoeneberg" eventKey="3">Schoeneberg</MenuItem>
         <MenuItem href="/areas/Mitte" eventKey="4">Mitte</MenuItem>
         <MenuItem href="/areas/PrenzlauerBerg" eventKey="5">Prenzlauer Berg</MenuItem>
         <MenuItem href="/areas/Friedrichshain" eventKey="6">Friedrichshain</MenuItem>
-        <MenuItem href="/areas/Wedding"eventKey="7">Wedding</MenuItem>
+        <MenuItem href="/areas/Wedding" eventKey="7">Wedding</MenuItem>
       </SplitButton>
 
-
-        </div>
-        </div>
-
-    )
-    }
+    </div>
+  </div>)
+}
 }
