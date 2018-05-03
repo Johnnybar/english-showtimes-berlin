@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from './axios'
 import Logo from './logo'
-// import { Link } from 'react-router';
 import { Link } from 'react-router-dom'
 import {browserHistory} from "react-router";
 import {hashHistory} from "react-router";
@@ -30,7 +29,7 @@ export default class areaChoice extends React.Component {
     }
 
 componentDidMount() {
-  
+
 }
 render() {
 

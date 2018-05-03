@@ -1,4 +1,5 @@
 
+
 export default function(state = {}, action) {
 
     if (action.type == 'GET_CINEMAS') {
@@ -7,15 +8,12 @@ export default function(state = {}, action) {
         });
     }
 
-
     if (action.type == 'GET_SHOWTIMES') {
 
         state = Object.assign({}, state, {
             showtimes: action.showtimes
         });
     }
-
-
 
     if (action.type == 'GET_MOVIE_INFO') {
 
@@ -24,12 +22,10 @@ export default function(state = {}, action) {
                 if (showtime.movie_id == action.movieId){
                     return Object.assign({}, showtime, action.movieObj);
                 }
-                return showtime;
-            });
-        });
+                return showtime
+            })
+        })
     }
-
-
 
 
     if (action.type == 'GET_CINEMAS_FOR_SAVED') {

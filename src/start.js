@@ -14,11 +14,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as io from 'socket.io-client';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import reducer from './reducers';
 export const store = createStore(reducer, composeWithDevTools(applyMiddleware(reduxPromise)));
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxPromise from 'redux-promise';
-import reducer from './reducers';
 
 let router;
 
