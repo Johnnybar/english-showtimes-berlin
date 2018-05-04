@@ -18,7 +18,8 @@ export default class Contact extends React.Component {
       <div>
         <form className='contact-form-container' target="_blank" action="mailto:johnnybareket@gmail.com" method="post" enctype="text/plain">
           <br/>
-          <div className='paint-white-bg'>Are we missing your favorite cinema? Did we gain weight? Send us an email and we'll sort it out!</div><br/>
+          <div className='paint-white-bg'>Are we missing your favorite cinema?
+            Did we gain weight? Send us an email and we'll sort it out!</div><br/>
           Full Name:
           <input type="text" name="FullName" placeholder='Full Name'></input>
           Email:<input type="text" name="Email" placeholder='Email Address'></input>

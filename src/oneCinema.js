@@ -30,9 +30,9 @@ class OneCinema extends React.Component {
     const cinemaId = this.props.params.cinema;
     this.props.dispatch(getShowtimesInfo(cinemaId)).then(() => {
       const showtimes = this.props.showtimes; //This is the showtimes info list
-      const movieInfo = this.props.movieArr //This is the array with synopsis and poster
+      const movieInfo = this.props.movieArr; //This is the array with synopsis and poster
       for (let i = 0; i < showtimes.length; i++) {
-        let movieId = showtimes[i].movie_id
+        let movieId = showtimes[i].movie_id;
         this.props.dispatch(getMoviesInfo(movieId, showtimes))
       }
     })
@@ -41,9 +41,9 @@ class OneCinema extends React.Component {
 
   render() {
     // setTimeout
-    const cinemaInfo = this.props.cinemaInfo
-    const showtimes = this.props.showtimes; //This is the showtimes info list
-    const movieInfo = this.props.movieArr //This is the array with synopsis and poster
+    const cinemaInfo = this.props.cinemaInfo;
+    const showtimes = this.props.showtimes;
+    const movieInfo = this.props.movieArr;
     if (!this.props.showtimes && !this.props.cinemaInfo) {
       return (<div className='loader-container'>
         <div className="loader"></div>
@@ -105,7 +105,6 @@ class OneCinema extends React.Component {
                         {show.synopsis}</div>
                     </div>
                     <div>
-                      {/* <img src= {show.poster}/> */}
                       <img src={show.thumbnail}/>
                     </div>
                   </div>
