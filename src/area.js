@@ -24,12 +24,11 @@ class Area extends React.Component{
             this.props.dispatch(getAllCinemas(areaId));
     }
     render(){
-
+console.log(typeof cinemasList);
         let cinemas;
         let cinemasList;
         var areaId =this.props.params.area
-        cinemas = this.props.cinemas.shift()
-
+        cinemas = this.props.cinemas
         if(cinemas){
             cinemasList = cinemas.map(eachCinema=>
             <div className='cinema-outer'>
@@ -40,7 +39,7 @@ class Area extends React.Component{
                             <div className='text-inside-cinema'>{eachCinema.name}</div>
                         </div>
                         <div className='each-cinema-container'>
-                            <img src={ eachCinema.imgurl} className='area-cinema-img'/>
+                            <img src={eachCinema.imgurl} className='area-cinema-img'/>
                         </div>
                         </a>
                 </div>
