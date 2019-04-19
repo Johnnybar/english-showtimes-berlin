@@ -203,7 +203,7 @@ a {
 }
 
 .cinema-page-img {
-  width: 15vw
+  width: 50%
 }
 
 .area-choice-ui {
@@ -442,6 +442,7 @@ input {
   display: flex;
   flex-direction: row;
   color: white;
+  margin: 10rem
 }
 
 #movie-search {

@@ -39,7 +39,7 @@ class Area extends React.Component{
                             <div className='text-inside-cinema'>{eachCinema.name}</div>
                         </div>
                         <div className='each-cinema-container'>
-                            <img src={eachCinema.imgurl || "https://cdn.pixabay.com/photo/2017/07/31/01/11/cinema-2556157_960_720.jpg"} className='area-cinema-img'/>
+                            <img src={eachCinema.imgurl !=='' ? eachCinema.imgurl : "https://cdn.pixabay.com/photo/2017/07/31/01/11/cinema-2556157_960_720.jpg"} className='area-cinema-img'/>
                         </div>
                         </a>
                 </div>
