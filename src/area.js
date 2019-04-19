@@ -26,11 +26,9 @@ class Area extends React.Component{
     render(){
         let cinemas;
         let cinemasList;
-        var areaId =this.props.params.area
+        var areaId = this.props.params.area
         cinemas = this.props.cinemas
-        for(var i in cinemas){
-          console.log(i, cinemas);
-        }
+        cinemas.shift()
         if(cinemas){
             cinemasList = cinemas.map(eachCinema=>
             <div className='cinema-outer'>
