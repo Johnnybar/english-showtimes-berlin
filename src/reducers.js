@@ -22,9 +22,9 @@ export default function(state = {}, action) {
                 if (showtime.movie_id == action.movieId){
                     return Object.assign({}, showtime, action.movieObj);
                 }
-                return showtime
+                return showtime;
             })
-        })
+        });
     }
 
 
@@ -50,6 +50,7 @@ export default function(state = {}, action) {
     }
 
     if (action.type == 'SET_SEARCH_RESULTS') {
+        console.log(action.movieInfo, 'in reducer');
 
         state = Object.assign({}, state, {
             movieInfo: action.movieInfo

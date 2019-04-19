@@ -13,7 +13,9 @@ class Search extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      movieFound: false
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onTestChange = this.onTestChange.bind(this);
   }
@@ -23,9 +25,13 @@ class Search extends React.Component {
       var textarea = document.getElementById('movie-search')
       textarea.value = ''
       axios.get('/getSpecificMovieInfo/' + this.state.text).then((results) => {
+        console.log(results.data, 'here i am');
         this.props.dispatch(setSearchResults(results.data))
         const movieInfo = this.props.movieInfo
-      }).catch((err) => {
+      }).then(()=>{
+        this.setState({movieFound: true})
+      })
+      .catch((err) => {
         console.log(err);
       })
     }
@@ -39,8 +45,9 @@ class Search extends React.Component {
         var textarea = document.getElementById('movie-search')
         textarea.value = ''
         axios.get('/getSpecificMovieInfo/' + this.state.text).then((results) => {
-          this.props.dispatch(setSearchResults(results.data))
+          this.props.dispatch(setSearchResults(results.data.Search[0]))
           const movieInfo = this.props.movieInfo
+
         }).catch((err) => {
           console.log(err);
         })
@@ -50,34 +57,42 @@ class Search extends React.Component {
     }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+
+  }
   render() {
+    console.log(this.props.movieInfo);
     if (!this.props) {
       <div>Please search first</div>
-    } else {
-      <div></div>
     }
 
+
     return (<div className='search-container'>
-      
-      <textarea id='movie-search' onKeyDown={this.onTestChange} value={this.state.value} placeholder='Search movie by title' onChange={(e) => this.setState({text: e.target.value})}></textarea>
+
+      <textarea id='movie-search'
+      // onKeyDown={this.onTestChange}
+      value={this.state.value} placeholder='Search movie by title' onChange={(e) => this.setState({text: e.target.value})}></textarea>
       <button className='click-btn' onClick={this.handleSubmit}>Search</button>
       {
-        this.props.movieInfo && <ul className='searchResultsContainer'>
-            <img className='cinema-page-img' src={this.props.movieInfo.poster_url}/>
+        this.props.movieInfo && this.state.movieFound === true &&
+        <ul className='searchResultsContainer'>
+            <img className='cinema-page-img' src={this.props.movieInfo.Poster}/>
             <div className='movie-info'>
               <li>
-                <strong>{this.props.movieInfo.name}</strong>
+                <strong>{this.props.movieInfo.Title}</strong>
               </li>
-              <li>{this.props.movieInfo.year}</li>
-              <li>Director: {this.props.movieInfo.director}</li>
-              <li>IMDB Rating: {this.props.movieInfo.rating}</li>
+              <li>{this.props.movieInfo.Year}</li>
+              <li>Actors: {this.props.movieInfo.Actors}</li>
+              <li>Director: {this.props.movieInfo.Director}</li>
+              <li>Awards: {this.props.movieInfo.Awards}</li>
+              <li>Genre: {this.props.movieInfo.Genre}</li>
+              <li>Language: {this.props.movieInfo.Language}</li>
+              <li>IMDB Rating: {this.props.movieInfo.imdbRating}</li>
 
-              <li>{this.props.movieInfo.plot}</li>
-              <li>Stars: {this.props.movieInfo.stars}</li>
+              <li>{this.props.movieInfo.Plot}</li>
 
-              <a className='paint-white-bg-imdb' href={`http://www.imdb.com/title/${this.props.movieInfo.imdb_id}`} target="_blank">
-                Check out the IMDB page for {this.props.movieInfo.name}!
+              <a className='paint-white-bg-imdb' href={`http://www.imdb.com/title/${this.props.movieInfo.imdbID}`} target="_blank">
+                Check out the IMDB page for {this.props.movieInfo.Title}!
               </a>
             </div>
           </ul>

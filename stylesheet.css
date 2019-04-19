@@ -231,7 +231,7 @@ text-align: center;
 
 }
 .cinema-page-img{
-    width:15vw
+    width:50%
 
 }
 
@@ -485,6 +485,7 @@ padding: 30px;
     display: flex;
     flex-direction: row;
     color: white;
+    margin: 10rem;
 
 }
 
