@@ -28,8 +28,8 @@ class Area extends React.Component{
         let cinemasList;
         var areaId = this.props.params.area
         cinemas = this.props.cinemas
-        cinemas.shift()
         if(cinemas){
+          cinemas.shift()
             cinemasList = cinemas.map(eachCinema=>
             <div className='cinema-outer'>
                 <div className='cinema-border'>
