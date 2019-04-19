@@ -25,7 +25,6 @@ class Search extends React.Component {
       var textarea = document.getElementById('movie-search')
       textarea.value = ''
       axios.get('/getSpecificMovieInfo/' + this.state.text).then((results) => {
-        console.log(results.data, 'here i am');
         this.props.dispatch(setSearchResults(results.data))
         const movieInfo = this.props.movieInfo
       }).then(()=>{
@@ -61,7 +60,6 @@ class Search extends React.Component {
 
   }
   render() {
-    console.log(this.props.movieInfo);
     if (!this.props) {
       <div>Please search first</div>
     }

@@ -73,7 +73,7 @@ app.get('/getCinemasByArea/:area', function(req, res) {
             req.session.user = {
                 id: result[0].id
             };
-            console.log('this is req.session.user in area page: ', req.session.user.id);
+            // console.log('this is req.session.user in area page: ', req.session.user.id);
             db.updateSessionIdWhereSerial(req.session.user.id);
         }
     }).catch((err) => {
@@ -89,14 +89,14 @@ app.get('/getCinemasByArea/:area', function(req, res) {
 });
 
 app.get('/addToSaved/:cinemaId', (req, res) => {
-    console.log('this is req.session in addToSaved: ', req.session.user);
+    // console.log('this is req.session in addToSaved: ', req.session.user);
     db.addToSaved(req.session.user.id, req.params.cinemaId);
 });
 
 app.get('/getCinemaInfo/:cinemaId', (req, res) => {
 
     db.getCinemaInfo(req.params.cinemaId).then((result) => {
-        console.log('this is getCinemaInfo; ', result);
+        // console.log('this is getCinemaInfo; ', result);
         res.json(result);
     }).catch((err) => {
         console.log(err);
@@ -164,8 +164,7 @@ app.get('/getMoviesInfo/:movieId', function(req, res) {
 app.get('/getSpecificMovieInfo/:movieTitle', (req, res) => {
     const movieTitle = req.params.movieTitle;
     api.getSpecificMovieInfo(movieTitle).then((results) => {
-        console.log(results);
-        console.log('this is specific movie result: ', results.data);
+        // console.log('this is specific movie result: ', results.data);
         var movieResults = results.data;
         res.json(movieResults);
     }).catch((err) => {
