@@ -29,6 +29,8 @@ class Area extends React.Component{
         let cinemasList;
         var areaId =this.props.params.area
         cinemas = this.props.cinemas
+        // let urlthing = "https://cdn.pixabay.com/photo/2017/07/31/01/11/cinema-2556157_960_720.jpg"
+        // console.log(urlthing.slice(0,5));
         if(cinemas){
             cinemasList = cinemas.map(eachCinema=>
             <div className='cinema-outer'>
@@ -39,7 +41,7 @@ class Area extends React.Component{
                             <div className='text-inside-cinema'>{eachCinema.name}</div>
                         </div>
                         <div className='each-cinema-container'>
-                            <img src={eachCinema.imgurl !=='' ? eachCinema.imgurl : "https://cdn.pixabay.com/photo/2017/07/31/01/11/cinema-2556157_960_720.jpg"} className='area-cinema-img'/>
+                            <img src={eachCinema.imgurl.slice(0,5) ==='https' ? eachCinema.imgurl : "https://cdn.pixabay.com/photo/2017/07/31/01/11/cinema-2556157_960_720.jpg"} className='area-cinema-img'/>
                         </div>
                         </a>
                 </div>
