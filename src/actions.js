@@ -7,7 +7,7 @@ export const getAllCinemas = function(areaId) {
         // console.log('this is results.data ', results.data);
         return {
             type:'GET_CINEMAS',
-            cinemas:results.data
+            cinemas: results.data
         };
     }).catch((err)=>{
         console.log(err);
