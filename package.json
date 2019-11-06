@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "allocine-api": "^0.1.9",
-    "axios": "^0.15.3",
+    "axios": "^0.19.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
     "babel-loader": "^6.2.9",
